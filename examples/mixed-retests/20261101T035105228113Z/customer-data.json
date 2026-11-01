@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "run_id": "5d5f5a7d12664202b87e603f56d95e95",
+  "recorded_at": "2026-11-01T03:51:19.912804+00:00",
+  "mode": "live",
+  "input": {
+    "question": "客户的相关信息是不是只能保存在公司已经确认的系统里面，不能保存在个人设备里面？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "answered",
+    "citations": [
+      {
+        "doc_id": "SECURITY",
+        "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+        "version_date": "2026-01-15",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [],
+    "question": "",
+    "answer": "依据已获取的适用资料：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+    "coverage": "supported"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户信息 保存 公司确认系统 个人设备 信息安全",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "TRAVEL-HOTEL",
+          "LEAVE-IN"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找客户信息存储与个人设备限制规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793505066444618be72f3907769bd1896ffa0351d575d8e8b3",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 2042,
+          "total_tokens": 2088,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "99ce45665f1d49178c30745655d50c18eddfcacefe7ca5a6abc25f80126ce362",
+        "response_content_sha256": "6bc4a39d779c6df2cfde2e8bba322dd1f6db665636d71c56a7c48acdc70db6f7"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "客户信息 保存 公司确认系统 个人设备 信息安全",
+          "top_k": 5
+        },
+        "reason": "查找客户信息存储与个人设备限制规定"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "score": 7.9617,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 1.6976,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需核实个人设备是否被全面禁止"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户资料 个人设备 保存 禁止 拷贝 本地存储 U盘",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "PRODUCT-EXPORT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "read_document",
+      "decision_basis": "需核实个人设备是否被全面禁止",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179350507031781bcf3888af47e0bb18c2d03241a33e7d9cee3",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 47,
+          "prompt_tokens": 2446,
+          "total_tokens": 2493,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8dca95ed32980aff4ab95339e57e931f3b47a767344febdb6aa177dff10c3b81",
+        "response_content_sha256": "3759ce7e54b5cbb8cc5a46ae74a79e50c684739d3a9292bba2db760d7f3f6e7d"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "客户资料 个人设备 保存 禁止 拷贝 本地存储 U盘",
+          "top_k": 5
+        },
+        "reason": "需核实个人设备是否被全面禁止"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "score": 11.3087,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "score": 1.3451,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需读取原文核对个人设备相关限制"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "SECURITY"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "SECURITY",
+        "characters": 37
+      },
+      "next_action": "finish",
+      "decision_basis": "需读取原文核对个人设备相关限制",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793505073461f209293b0689fc4da4ccbf3e82cce55d4b7202",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 29,
+          "prompt_tokens": 2853,
+          "total_tokens": 2882,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "65bcf676b5c53c6fde943d01946883cb752738b2631933732c970ddd9324f98a",
+        "response_content_sha256": "5f30230a4f70420c6b43f51e31881592ed0e9050d08d6eb40e68ba9a2c9ad7d0"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "SECURITY"
+        },
+        "reason": "需读取原文核对个人设备相关限制"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "SECURITY",
+          "title": "客户资料保管规范",
+          "version_date": "2026-01-15",
+          "scope": "全体员工",
+          "policy_key": "customer_data",
+          "supersedes": [],
+          "content": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+        }
+      },
+      "next_decision_basis": "制度明确批准系统保存要求，但未概括规定所有个人设备"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:answered",
+      "decision_basis": "制度明确批准系统保存要求，但未概括规定所有个人设备",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935050763630abef843717a049b367df527ee7bcb3551dce3",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 75,
+          "prompt_tokens": 2973,
+          "total_tokens": 3048,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a12c9d67bd2437a635e1d8c7c9aa25f0f193717cf9cdb68c16b81fa7068313af",
+        "response_content_sha256": "41188be39f5198317cc7dfa5f83f767ff52633aa9e10529aaf2df1bc5f104a21"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "制度明确批准系统保存要求，但未概括规定所有个人设备",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "SECURITY",
+              "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+            }
+          ],
+          "missing_info": [],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

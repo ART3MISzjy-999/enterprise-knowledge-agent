@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "run_id": "22721275664c42b4bd2e2602e891d002",
+  "recorded_at": "2026-11-01T06:34:23.489343+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是实习生，去武汉出差住店花了409元，车票350元，住宿有没有金额标准，交通票又怎么报？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "实习生出差住宿是否有金额标准，现有资料未明确说明。",
+      "实习生出差交通票的报销规则，现有资料未明确说明。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[TRAVEL-HOTEL] 【仅适用正式员工，不能直接套用于你当前的实习生身份】正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n现有资料尚不能确认的部分：\n- 实习生出差住宿是否有金额标准，现有资料未明确说明。\n- 实习生出差交通票的报销规则，现有资料未明确说明。",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生 出差 住宿标准 交通 报销",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-IN",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找实习生出差住宿标准和交通票报销规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935148469182d2adc5f67699b5065fc2ee83bfd4d90fd2005",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 42,
+          "prompt_tokens": 2422,
+          "total_tokens": 2464,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "011211f8bee34840ccf8bf1601387c2d27426948177457cbbf406883d9db6cb1",
+        "response_content_sha256": "73e8b84ed25c6801914b80d08de0848eb5f96b147d9a136f71eed78de2414de2"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找实习生出差住宿标准和交通票报销规定",
+        "arguments": {
+          "query": "实习生 出差 住宿标准 交通 报销",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.0711,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.4161,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "现有资料仅提到正式员工住宿标准，未明确实习生出差住宿标准和交通票报销规则，需补充检索实习生差旅及交通报销相关制度。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生 出差 交通 报销 标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "TRAVEL-HOTEL",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "finish",
+      "decision_basis": "现有资料仅提到正式员工住宿标准，未明确实习生出差住宿标准和交通票报销规则，需补充检索实习生差旅及交通报销相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514852665d5d07458a5ab4d80457611556e9a6a108e5741",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 65,
+          "prompt_tokens": 3089,
+          "total_tokens": 3154,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "9b9fc2c02f32fbf24fbdc4ae827179886ac998da3017586ffac13919b4c6413f",
+        "response_content_sha256": "4b9e8aca075d40be4042af4c3743f15231b53de22a05775d646a92431b27ef23"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "现有资料仅提到正式员工住宿标准，未明确实习生出差住宿标准和交通票报销规则，需补充检索实习生差旅及交通报销相关制度。",
+        "arguments": {
+          "query": "实习生 出差 交通 报销 标准",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.4161,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.9113,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "现有制度仅明确正式员工住宿标准，未提及实习生出差住宿及交通报销规则。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "现有制度仅明确正式员工住宿标准，未提及实习生出差住宿及交通报销规则。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514856307234941bcf51f16e2fd5d0b33793bdac0dcf8c0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 123,
+          "prompt_tokens": 3755,
+          "total_tokens": 3878,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "b7256d56762b3d25990e8d5a363b335b7789f4bf64002582cda0b8a10e0370c0",
+        "response_content_sha256": "0ecca00286566ac7b947d8eadc17e5e2e91a853d02f6d10d562a0526a8a745bc"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "现有制度仅明确正式员工住宿标准，未提及实习生出差住宿及交通报销规则。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            }
+          ],
+          "missing_info": [
+            "实习生出差住宿是否有金额标准，现有资料未明确说明。",
+            "实习生出差交通票的报销规则，现有资料未明确说明。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M18",
+  "evaluation_turn": 1
+}

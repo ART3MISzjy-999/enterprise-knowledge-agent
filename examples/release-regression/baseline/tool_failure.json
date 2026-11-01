@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "run_id": "6f714e7ce3d545cfb5d94a52f3589bb2",
+  "recorded_at": "2026-11-01T06:26:55.324013+00:00",
+  "mode": "live",
+  "input": {
+    "question": "正式员工每年有多少天带薪年假？",
+    "history": []
+  },
+  "model_response_count": 5,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "incomplete",
+    "citations": [],
+    "missing_info": [
+      "正式员工带薪年假天数的制度依据因检索工具故障无法获取"
+    ],
+    "question": "",
+    "answer": "本次查询未完成，不能确认结论。\n尚待确认：\n- 正式员工带薪年假天数的制度依据因检索工具故障无法获取",
+    "coverage": "none"
+  },
+  "tool_calls": 4,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 带薪年假 天数",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找正式员工带薪年假天数的相关制度规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935143949782b35cfdb86d4e4b324c5d7f5a75557a2baaefa",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 2374,
+          "total_tokens": 2422,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "593f273206cd3f8ece84575d1b865dbbde3e24b1cbfc1a433966fa4ec7ed1755",
+        "response_content_sha256": "a1e8e253f0e6aec4e8bb1aa083920425a9a96892983917259fc40f733374b7dc"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找正式员工带薪年假天数的相关制度规定",
+        "arguments": {
+          "query": "正式员工 带薪年假 天数",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "首次搜索失败，重试查询正式员工带薪年假天数的相关制度"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 带薪年假 天数",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "search_documents",
+      "decision_basis": "首次搜索失败，重试查询正式员工带薪年假天数的相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514398826d43c98a3a6422f05688e398a72cec5f4150af8",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 43,
+          "prompt_tokens": 2436,
+          "total_tokens": 2479,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "f91a3a80bbb84b9c9d1395e0495938142ef57b35fca21d1b1a74ea0bb320de2b",
+        "response_content_sha256": "b98958190e3d9a963138c457677285b30400416294bb237ce1a985edc0064da3"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "首次搜索失败，重试查询正式员工带薪年假天数的相关制度",
+        "arguments": {
+          "query": "正式员工 带薪年假 天数",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "前两次搜索因系统错误失败，此次重试查询年假相关制度"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年假",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "search_documents",
+      "decision_basis": "前两次搜索因系统错误失败，此次重试查询年假相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935144035520f9bb35e69347bdf2811883e879e3d49ec6e5d",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 37,
+          "prompt_tokens": 2497,
+          "total_tokens": 2534,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "18495eab6ff3ae6783938336fa7debaabe363e9ffda749c533237e062e72be13",
+        "response_content_sha256": "7442449a51186a0256ee2b08d04a120e3ff73a4a33afc1f00b7314d46b451568"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "前两次搜索因系统错误失败，此次重试查询年假相关制度",
+        "arguments": {
+          "query": "年假",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "重试检索带薪年假相关制度文档"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "带薪年假",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "finish",
+      "decision_basis": "重试检索带薪年假相关制度文档",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514408002a71fb5caa63bcd7df8c9e328d4d305c2c388de",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 31,
+          "prompt_tokens": 2552,
+          "total_tokens": 2583,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "468a14f5a8dbc57046e9f7918c68a8828f976c9cc60c6d990ef0106a582777d3",
+        "response_content_sha256": "983672eff7d983e46ca22ffbb076b44314746decb93683c146bbd16085ff55b2"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "重试检索带薪年假相关制度文档",
+        "arguments": {
+          "query": "带薪年假",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "多次检索工具均返回不可用，无法获取年假相关制度资料"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "多次检索工具均返回不可用，无法获取年假相关制度资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935144116968c80d243bafb90575ac6ccce9142197de418b5",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 68,
+          "prompt_tokens": 2608,
+          "total_tokens": 2676,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a0762eb5db66597f0ab55072d881b458b7ec739a339c41c2ee8aa4019b2af4f2",
+        "response_content_sha256": "fa9ec54ee3307623e08d396cba980e4d77ad9fbfc6967ff220042fbc5924b8f2"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "多次检索工具均返回不可用，无法获取年假相关制度资料",
+        "result": {
+          "status": "incomplete",
+          "citations": [],
+          "missing_info": [
+            "正式员工带薪年假天数的制度依据因检索工具故障无法获取"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "tool_failure",
+  "test_setup": {
+    "injected_search_failures": 99,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

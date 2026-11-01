@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "run_id": "a15367a989d44e8f92b55660d6f3b110",
+  "recorded_at": "2026-11-01T05:20:13.881291+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是实习同学，下周有私事要请假，提前多久跟导师打招呼？每个月可以这么请多少回而不影响考核？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "LEAVE-IN",
+        "quote": "实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+        "version_date": "2026-02-01",
+        "scope": "实习生",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "现有资料未明确实习生每月因私事请假的次数上限，以及该类请假是否会影响考核的相关规定。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[LEAVE-IN] 实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。\n现有资料尚不能确认的部分：\n- 现有资料未明确实习生每月因私事请假的次数上限，以及该类请假是否会影响考核的相关规定。",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生请假 提前多久 导师 每月次数 考核",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "LEAVE-FT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找实习生请假制度，包括提前通知期限和每月请假次数与考核的关系",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510401021c5962d2ff0c11c118c6b5d934e5fbaa194bf89",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 51,
+          "prompt_tokens": 2394,
+          "total_tokens": 2445,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "0089c207d61614e4d316802c9aabfeebc67e516aa24cdad3636bf15f9adb6633",
+        "response_content_sha256": "175389659a7b69a316c64d24e109d820ab7664bdda65fc6fff119e096e0dbcdc"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找实习生请假制度，包括提前通知期限和每月请假次数与考核的关系",
+        "arguments": {
+          "query": "实习生请假 提前多久 导师 每月次数 考核",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 10.8103,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.3307,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "现有资料仅提到实习生事假需提前1个工作日向导师申请，未涉及每月事假次数与考核影响的相关规定，需进一步检索。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生 事假 每月次数 考核影响",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "finish",
+      "decision_basis": "现有资料仅提到实习生事假需提前1个工作日向导师申请，未涉及每月事假次数与考核影响的相关规定，需进一步检索。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935104048936a00aaadbf856d05e5e786a533a1442292e80b",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 94,
+          "prompt_tokens": 2700,
+          "total_tokens": 2794,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "1a861cc6d60780967bb49cfc5e802b1a32b4a491c9c7d2b55994437a3c08fbbe",
+        "response_content_sha256": "e44dd586eb288b20de0b6476f7e2fff67a5c8964b792569090057abe8e6c5d6a"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "现有资料仅提到实习生事假需提前1个工作日向导师申请，未涉及每月事假次数与考核影响的相关规定，需进一步检索。",
+        "arguments": {
+          "query": "实习生 事假 每月次数 考核影响",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.4161,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到实习生请假提前申请期限的规定，未找到每月请假次数及考核影响的相关说明。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到实习生请假提前申请期限的规定，未找到每月请假次数及考核影响的相关说明。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351040929979d2e7c3cf49a9962db0730ac2d5dd1359a183",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 123,
+          "prompt_tokens": 2889,
+          "total_tokens": 3012,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c24f28e48604a8e53ce33e8a70a596f9e76048b6c9b08ae5cd83339e6070270b",
+        "response_content_sha256": "c499a9b26f957c094e32a1ef0b7136010b6a0083695e1504cb034e795ad32436"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到实习生请假提前申请期限的规定，未找到每月请假次数及考核影响的相关说明。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "LEAVE-IN",
+              "quote": "实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"
+            }
+          ],
+          "missing_info": [
+            "现有资料未明确实习生每月因私事请假的次数上限，以及该类请假是否会影响考核的相关规定。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M03",
+  "evaluation_turn": 1
+}

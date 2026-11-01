@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "run_id": "45f38e8dad834e379c3801ac571774a6",
+  "recorded_at": "2026-11-01T05:22:49.410673+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我在家连公司的远程网络，除了账户口令还得输入什么？要是手机丢了，在哪个网址自助重置那个验证方式？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "IT-VPN",
+        "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+        "version_date": "2026-04-12",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "手机丢失后自助重置动态验证码（验证方式）的网址未在现有资料中明确说明"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[IT-VPN] 远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。\n现有资料尚不能确认的部分：\n- 手机丢失后自助重置动态验证码（验证方式）的网址未在现有资料中明确说明",
+    "coverage": "partial"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "远程网络登录验证方式 自助重置验证方式网址",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找远程网络登录验证方式及自助重置验证方式的网址相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351054654619937eadc6258ad89b117be868ee33ed459fc1",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 2396,
+          "total_tokens": 2444,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c0d582ff57b94c0a6c0b8c47e3bfebb3d8867d7c66bb67d9df2b38029654d476",
+        "response_content_sha256": "07946981dbb37e89de54393c07366e9173b0935b84d611a6bfb672cc1b3dd687"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找远程网络登录验证方式及自助重置验证方式的网址相关规定",
+        "arguments": {
+          "query": "远程网络登录验证方式 自助重置验证方式网址",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.5469,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "现有资料仅说明VPN需账号密码和动态验证码，未提及手机丢失后自助重置验证方式的网址，需补充检索相关内容。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "手机丢失 自助重置动态验证码 网址",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "read_document",
+      "decision_basis": "现有资料仅说明VPN需账号密码和动态验证码，未提及手机丢失后自助重置验证方式的网址，需补充检索相关内容。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935105526627dd244b6caaa2409295dae72fd71f679fc5153",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 2588,
+          "total_tokens": 2658,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4811a6030a2f575e6e24253ab407fbd1b718969a0daa06604f800ec499bbbd51",
+        "response_content_sha256": "2ade6479603e141cccbbddde661140463bc2048ee940445cf3576f0d7c88bf64"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "现有资料仅说明VPN需账号密码和动态验证码，未提及手机丢失后自助重置验证方式的网址，需补充检索相关内容。",
+        "arguments": {
+          "query": "手机丢失 自助重置动态验证码 网址",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.7624,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到VPN登录相关文档，但摘要未提及手机丢失后自助重置验证方式的网址，需读取完整文档确认"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "IT-VPN"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "IT-VPN",
+        "characters": 54
+      },
+      "next_action": "finish",
+      "decision_basis": "已检索到VPN登录相关文档，但摘要未提及手机丢失后自助重置验证方式的网址，需读取完整文档确认",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510558533d2dce40f454d7265773595afb83377637f438b",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 2778,
+          "total_tokens": 2826,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "ead53eb02fdabe893d067fbe253c7937a26472fdf65b9d6c450b6113e1ab6317",
+        "response_content_sha256": "5a178cf75430d716701bd5949ba3a4d3f4ad5ef9f06344d2053a655eafdd3647"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "已检索到VPN登录相关文档，但摘要未提及手机丢失后自助重置验证方式的网址，需读取完整文档确认",
+        "arguments": {
+          "doc_id": "IT-VPN"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "IT-VPN",
+          "title": "远程办公 VPN 登录",
+          "version_date": "2026-04-12",
+          "scope": "全体员工",
+          "policy_key": "vpn_login",
+          "supersedes": [],
+          "content": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "已读取相关文档，仅明确VPN登录需企业账号密码和动态验证码，未提及手机丢失后的自助重置网址及验证方式重置方法"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已读取相关文档，仅明确VPN登录需企业账号密码和动态验证码，未提及手机丢失后的自助重置网址及验证方式重置方法",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935105651462dc0f013dd9de882804ee1715bc98a4a89685b",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 123,
+          "prompt_tokens": 2917,
+          "total_tokens": 3040,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4d3af1900e8a81628d93b711ba3700449959f1f757aff3644c1e4c7d9edd5f6f",
+        "response_content_sha256": "c266cfa13cf5c05338c196737e585cfa82cbfa15d061e45d66d7931ec8791bcd"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已读取相关文档，仅明确VPN登录需企业账号密码和动态验证码，未提及手机丢失后的自助重置网址及验证方式重置方法",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "IT-VPN",
+              "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。"
+            }
+          ],
+          "missing_info": [
+            "手机丢失后自助重置动态验证码（验证方式）的网址未在现有资料中明确说明"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M09",
+  "evaluation_turn": 1
+}

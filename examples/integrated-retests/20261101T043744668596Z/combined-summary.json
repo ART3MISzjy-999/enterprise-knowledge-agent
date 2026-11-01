@@ -1,0 +1,10 @@
+{
+  "baseline": 9,
+  "additional_checks": {
+    "intern": true,
+    "formal_one_night": true,
+    "flight": true,
+    "mixed": true
+  },
+  "note": "针对性场景与有限规则验证；不等于任意中文事实抽取或长期稳定性证明。"
+}

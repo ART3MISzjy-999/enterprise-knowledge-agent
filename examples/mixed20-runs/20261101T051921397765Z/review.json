@@ -1,0 +1,54 @@
+{
+  "kind": "Codex逐条内容审读，不是独立人工标注或第二模型裁判",
+  "reviewed_cases": 20,
+  "meets_expected_behavior": 19,
+  "failed_cases": [
+    {
+      "id": "M18",
+      "reason": "第二轮用户已明确“我已是正式员工”，模型缺口文字按正式员工处理，但有限user_facts抽取未识别该说法，沿用旧实习生身份，导致渲染错误适用标签。",
+      "origin": "context.py中角色陈述模式覆盖不足，原始模型回复及最终渲染需分开看。"
+    }
+  ],
+  "rule_checks_passed": 20,
+  "rule_check_limitations": "规则仅检查状态、引用编号、缺口关键词、响应与Trace，无法覆盖身份语义及所有蕴含关系；原规则指标保留不改写。",
+  "validation_recovery_events": [
+    {
+      "id": "M06",
+      "turn": 1,
+      "step": 3,
+      "action": "finish",
+      "errors": [
+        "read_related_version_before_concluding:EXP-A",
+        "read_related_version_before_concluding:EXP-B",
+        "unresolved_conflict_requires_both_originals_and_citations:EXP-B,EXP-A",
+        "conflict_requires_two_read_documents"
+      ]
+    },
+    {
+      "id": "M06",
+      "turn": 1,
+      "step": 6,
+      "action": "finish",
+      "errors": [
+        "clarification_must_be_a_question"
+      ]
+    },
+    {
+      "id": "M20",
+      "turn": 2,
+      "step": 3,
+      "action": "finish",
+      "errors": [
+        "read_related_version_before_concluding:EXP-A",
+        "read_related_version_before_concluding:EXP-B",
+        "unresolved_conflict_requires_both_originals_and_citations:EXP-B,EXP-A",
+        "conflict_requires_two_read_documents"
+      ]
+    }
+  ],
+  "other_observations": [
+    "M04引用正式员工规则作为对照但原文保留实习生不适用说明；额外引用会增加阅读负担。",
+    "M08给出超上限须预订前书面确认的条款，但没有直接写620大于500的比较，表达仍可更直接。",
+    "多轮补充后仍有部分整句引用式表达；本轮不评价长期稳定性或完全自然语言交互质量。"
+  ]
+}

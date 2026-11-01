@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "run_id": "d71c2c554a1b467595f43e5dd0619a97",
+  "recorded_at": "2026-11-01T03:34:37.438641+00:00",
+  "mode": "live",
+  "input": {
+    "question": "明天从上海去北京最早一班飞机几点钟？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "缺少明天上海至北京的实时航班时刻表数据",
+      "缺少可查询民航航班实时信息的外部工具；当前仅有本地企业制度或产品资料检索能力"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。\n尚待确认：\n- 缺少明天上海至北京的实时航班时刻表数据\n- 缺少可查询民航航班实时信息的外部工具；当前仅有本地企业制度或产品资料检索能力"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "上海到北京航班时刻表 最早航班",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "finish",
+      "decision_basis": "先核实本地资料是否含航班信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935040697300477e7d991a1abd211e987ddddb28cab1968ff",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 39,
+          "prompt_tokens": 1873,
+          "total_tokens": 1912,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "087f83bbee35c38b391d7aa672faad485698274d837927be8b5db0452b7c0169",
+        "response_content_sha256": "e50a831dc61c7f6d1d3144aaa9fb97d779787fde16098793fd524861bce35d61"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "上海到北京航班时刻表 最早航班",
+          "top_k": 5
+        },
+        "reason": "先核实本地资料是否含航班信息"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "本地资料无航班时刻，且需实时外部数据"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "本地资料无航班时刻，且需实时外部数据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793504073942d43c98a3a6422f05688e398a72cec5f495e512",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 1941,
+          "total_tokens": 2015,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "de8c2f19a47b67f483d8dbd8bfa8e78878864517dc5cdac285176c252aa67141",
+        "response_content_sha256": "d016b2e7e763160accb5418caa837129ffd63c36641a0eac65656a9777e77164"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "本地资料无航班时刻，且需实时外部数据",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "缺少明天上海至北京的实时航班时刻表数据",
+            "缺少可查询民航航班实时信息的外部工具；当前仅有本地企业制度或产品资料检索能力"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "run_id": "68a151c1000646fb859e3624661337e6",
+  "recorded_at": "2026-11-01T01:47:29.022448+00:00",
+  "mode": "live",
+  "input": {
+    "question": "全职同事一年有几天带薪休假额度？",
+    "history": []
+  },
+  "model_response_count": 5,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "answered",
+    "citations": [
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "正式员工每个完整服务年度享有12天带薪年假。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [],
+    "question": "",
+    "answer": "依据已获取的适用资料：\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "search_documents",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976282046a482d06fd8d14906e8833452a0dfd15e56ded",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 95,
+          "prompt_tokens": 779,
+          "total_tokens": 874,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8f054cb71efc84e8b93fecd211b0658b4de84ced16537e36836418b39039d0a9",
+        "response_content_sha256": "9655c5352bffcadaf0143da332e19e969d0e8fb05dd073f9e9d89086b63edf2a"
+      },
+      "next_decision_basis": "查找全职员工年度带薪休假额度的相关规定"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "全职员工带薪休假天数",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "model_error",
+      "decision_basis": "查找全职员工年度带薪休假额度的相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976342091bf7e6c6c13a047df19a5322aa31ba208b025f",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 803,
+          "total_tokens": 839,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "1de486b4fdefae6fc019b3d42f98ee254c8086eca8e909e06f913df8a870be15",
+        "response_content_sha256": "b444e2ca26e50b73c4f960b114c1af459d8a5d4bc17d88b623119b50b2fec9e1"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "全职员工带薪休假天数",
+          "top_k": 5
+        },
+        "reason": "查找全职员工年度带薪休假额度的相关规定"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 6.7259,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 6.1819,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "read_document",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497636888058502d755c26cb6cb15fa4dd1ac2db8bc29ae",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 121,
+          "prompt_tokens": 1202,
+          "total_tokens": 1323,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "cada006dff4845d3de1d8b93c1db65bc5e1f8fbfde7c72d74906706f86c0ac7d",
+        "response_content_sha256": "ac8ea6230cad75d2c325e3f823c64e121f2bdf802c96832bfebd6ff51ad56a2d"
+      },
+      "next_decision_basis": "获取正式员工带薪休假的完整制度原文，确认具体额度规则"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "LEAVE-FT"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "LEAVE-FT",
+        "characters": 41
+      },
+      "next_action": "finish",
+      "decision_basis": "获取正式员工带薪休假的完整制度原文，确认具体额度规则",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976439703694b53d1b7644bc84f9058822e8eff2e0b96a",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 34,
+          "prompt_tokens": 1227,
+          "total_tokens": 1261,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "23240ec08b2ca25982e69a7b47adc5e06708e1d0f176fe1dbe2e5d0064a5d9da",
+        "response_content_sha256": "a8d4d81095e6a923d2df6bfd3dd8c743a081fbe93c8b9d231edef65f736a48c5"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "LEAVE-FT"
+        },
+        "reason": "获取正式员工带薪休假的完整制度原文，确认具体额度规则"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "LEAVE-FT",
+          "title": "正式员工年假 FAQ",
+          "version_date": "2026-01-10",
+          "scope": "正式员工",
+          "policy_key": "annual_leave",
+          "supersedes": [],
+          "content": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+        }
+      },
+      "next_decision_basis": "已获取对应制度原文"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:answered",
+      "decision_basis": "已获取对应制度原文",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976470735ff81645323f0060132cd8f23da37b47c07d47",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 57,
+          "prompt_tokens": 1352,
+          "total_tokens": 1409,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "74c4e3197719cff51929d4522eccf7709714a4569a431d1acb089f9ec25e11e6",
+        "response_content_sha256": "b921254602b905783e59777621d95cbf19100625033c90d55d71b7e334cabe8a"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已获取对应制度原文",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。"
+            }
+          ],
+          "missing_info": [],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "paraphrase",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

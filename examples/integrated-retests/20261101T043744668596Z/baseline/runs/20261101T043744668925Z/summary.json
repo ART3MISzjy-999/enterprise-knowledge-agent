@@ -1,0 +1,129 @@
+{
+  "mode": "live",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 3,
+      "tool_calls": 2
+    },
+    {
+      "case": "conflict",
+      "passed": true,
+      "errors": [],
+      "expected_status": "conflict",
+      "actual_status": "conflict",
+      "steps": 4,
+      "tool_calls": 3
+    },
+    {
+      "case": "insufficient",
+      "passed": true,
+      "errors": [],
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "steps": 3,
+      "tool_calls": 2
+    },
+    {
+      "case": "paraphrase",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 3,
+      "tool_calls": 2
+    },
+    {
+      "case": "followup",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 4,
+      "tool_calls": 2
+    },
+    {
+      "case": "tool_failure",
+      "passed": true,
+      "errors": [],
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "steps": 4,
+      "tool_calls": 3
+    },
+    {
+      "case": "tool_recovery",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 3,
+      "tool_calls": 2
+    },
+    {
+      "case": "evidence_single",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 3,
+      "tool_calls": 2
+    },
+    {
+      "case": "evidence_conflict",
+      "passed": true,
+      "errors": [],
+      "expected_status": "conflict",
+      "actual_status": "conflict",
+      "steps": 4,
+      "tool_calls": 3
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "observed_paths": [
+    {
+      "case": "normal",
+      "after_first_tool": "read_document"
+    },
+    {
+      "case": "conflict",
+      "after_first_tool": "read_document"
+    },
+    {
+      "case": "insufficient",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "paraphrase",
+      "after_first_tool": "read_document"
+    },
+    {
+      "case": "followup",
+      "after_first_tool": "read_document"
+    },
+    {
+      "case": "tool_failure",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "tool_recovery",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "evidence_single",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "evidence_conflict",
+      "after_first_tool": "read_document"
+    }
+  ],
+  "real_llm_path_divergence": true,
+  "note": "仅比较已记录行为，不构成密码学真实性证明；离线脚本不证明模型决策。",
+  "run_directory": "runs/20261101T043744668925Z"
+}

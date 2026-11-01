@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "run_id": "bc7429d9476344c78fac1524d266c78a",
+  "recorded_at": "2026-11-01T04:40:58.084227+00:00",
+  "mode": "live",
+  "input": {
+    "question": "对的，这是一晚住的",
+    "history": [
+      {
+        "role": "user",
+        "content": "我是实习生，昨天出差高铁费用350元，宾馆费用409元，怎么报销？"
+      },
+      {
+        "role": "assistant",
+        "content": "请确认员工身份与住宿晚数。"
+      },
+      {
+        "role": "user",
+        "content": "说错了，我是正式员工"
+      }
+    ]
+  },
+  "model_response_count": 7,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "needs_clarification",
+    "citations": [
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "read_document"
+      },
+      {
+        "doc_id": "EXP-B",
+        "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+        "version_date": "2026-03-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      },
+      {
+        "doc_id": "EXP-A",
+        "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+        "version_date": "2026-01-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "出差地点是否在中国大陆，以判断409元一晚住宿是否适用每晚500元上限。",
+      "350元高铁费用的具体报销规则，现有检索结果未提供交通费标准。",
+      "15天与30天两个报销申请期限均适用全体员工且无替代关系，需确认以哪项制度为准。"
+    ],
+    "question": "本次出差是否在中国大陆？另外，报销提交期限应适用15天还是30天的制度？",
+    "answer": "需要补充适用信息后再确认。\n[TRAVEL-HOTEL] 正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n[EXP-B] 【优先级待确认】员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n[EXP-A] 【优先级待确认】员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n根据你提供的信息，正式员工一晚住宿费为409元，未超过资料规定的每晚500元上限。若本次是在中国大陆出差，该比较适用；这是金额标准比较，不代表已确认全部报销条件。[TRAVEL-HOTEL]\n尚待确认：\n- 出差地点是否在中国大陆，以判断409元一晚住宿是否适用每晚500元上限。\n- 350元高铁费用的具体报销规则，现有检索结果未提供交通费标准。\n- 15天与30天两个报销申请期限均适用全体员工且无替代关系，需确认以哪项制度为准。\n本次出差是否在中国大陆？另外，报销提交期限应适用15天还是30天的制度？",
+    "coverage": "partial"
+  },
+  "tool_calls": 5,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 出差 高铁 宾馆 住宿 报销 标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "read_document",
+      "decision_basis": "查找正式员工差旅高铁与住宿报销标准",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935080260590b6a535eac4f8e78612710df2bd33e044321d6",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 2532,
+          "total_tokens": 2578,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "b758d3a00f8d6d4e2671a335ddcd3a30765b84942ffe938c93bca190a000bfc3",
+        "response_content_sha256": "c4f7e587ef9d5e972c69854f7a66619cfca9647d2896d4a249bb2056db68fc0a"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找正式员工差旅高铁与住宿报销标准",
+        "arguments": {
+          "query": "正式员工 出差 高铁 宾馆 住宿 报销 标准",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.9691,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": "报销期限存在两个并行版本，需读取双方原文核对冲突。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-B"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-B",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "报销期限存在两个并行版本，需读取双方原文核对冲突。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508030177550bfab5f71280c58de086216775be5d312cf2",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 34,
+          "prompt_tokens": 3195,
+          "total_tokens": 3229,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "ea42d9951111ac728b080d830f372f85cfeb124498fd880a57243e0877416e53",
+        "response_content_sha256": "ead17769e1b21d2dcc79edc73d390bd31ed2147b46d8ec3f51c41ee9563c0be7"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "报销期限存在两个并行版本，需读取双方原文核对冲突。",
+        "arguments": {
+          "doc_id": "EXP-B"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-B",
+          "title": "费用报销操作 FAQ",
+          "version_date": "2026-03-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+          "version_peer_ids": [
+            "EXP-A"
+          ]
+        }
+      },
+      "next_decision_basis": "报销期限存在并行版本，需读取原文核对冲突。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "报销期限存在并行版本，需读取原文核对冲突。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935080342580451d664a5d5fd238884dd8fb7ca7e60a66208",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 3329,
+          "total_tokens": 3361,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "cb91c4ef43f3ca0368578908787d7f699d61c52fd17f0ace99563eec1783d69f",
+        "response_content_sha256": "35f31536538f51b32fb457cf3195153df439cbdeb312b5ba870f51b4e7199f7a"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "EXP-A"
+        },
+        "reason": "报销期限存在并行版本，需读取原文核对冲突。"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+          "version_peer_ids": [
+            "EXP-B"
+          ]
+        }
+      },
+      "next_decision_basis": "住宿标准尚未读取原文，且高铁报销规则还需查证。"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "TRAVEL-HOTEL"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "TRAVEL-HOTEL",
+        "characters": 50
+      },
+      "next_action": "search_documents",
+      "decision_basis": "住宿标准尚未读取原文，且高铁报销规则还需查证。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508037936bb9ebb4b6644457884a01efaa0fed6337dbda1",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 38,
+          "prompt_tokens": 3463,
+          "total_tokens": 3501,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "2418336ef283378bd2f6c2a35b2a46925fd54ee38cb65a5f3c2d2ec4edf28377",
+        "response_content_sha256": "bb568ba804c92dc10c9dbb8a8e365a0cfb1e9deebca1826217130112ded51fd2"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "住宿标准尚未读取原文，且高铁报销规则还需查证。",
+        "arguments": {
+          "doc_id": "TRAVEL-HOTEL"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "TRAVEL-HOTEL",
+          "title": "差旅住宿标准",
+          "version_date": "2026-06-01",
+          "scope": "正式员工",
+          "policy_key": "hotel_allowance",
+          "supersedes": [],
+          "content": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "需补充高铁报销及住宿适用地区依据"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 出差 高铁 火车票 交通费 报销 标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "invalid_decision",
+      "decision_basis": "需补充高铁报销及住宿适用地区依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508041129f2aa58d54c9d99740e93421e20223e30b87670",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 3606,
+          "total_tokens": 3652,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "25b1789edddcd69dda7c3b32ed30de2e15804dd6c55c1f04b57fbac616eeb6f9",
+        "response_content_sha256": "65818fbc74a4155dc1706b613ff8a90e25825e4fbd71194f4d15313ec758a973"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工 出差 高铁 火车票 交通费 报销 标准",
+          "top_k": 5
+        },
+        "reason": "需补充高铁报销及住宿适用地区依据"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 5.5069,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": ""
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "invalid_decision",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "clarify",
+      "decision_basis": "",
+      "validation_errors": [
+        "clarify requires needs_clarification and vice versa"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935080447494424d60fbe7ca4e6a3438a81f2515be627a661",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 247,
+          "prompt_tokens": 4269,
+          "total_tokens": 4516,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8aa3acfe2bec7539379f6a164b41683be7e0ab42ae62aea19190ce1fe40e96de",
+        "response_content_sha256": "3e5297659a402ab3bf5c48900e999524f2eb268cc17f5045b1a507b3a17c9901"
+      },
+      "next_decision_basis": "住宿需确认是否中国大陆，且报销期限存在冲突需确认适用规则。"
+    },
+    {
+      "step": 7,
+      "source": "live",
+      "action": "clarify",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:needs_clarification",
+      "decision_basis": "住宿需确认是否中国大陆，且报销期限存在冲突需确认适用规则。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935080518482bbef52b8030dbcfb1b140243411abf23eeeaa",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 258,
+          "prompt_tokens": 4280,
+          "total_tokens": 4538,
+          "prompt_tokens_details": {
+            "cached_tokens": 3384
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7decac83ddd6b033ff028463664336fb25fa1749627f890f9782cceb657842fb",
+        "response_content_sha256": "1639f9966c43f73ee4172e040508f0b3f0b39234f4298d62ae360f62b27618e6"
+      },
+      "decision": {
+        "action": "clarify",
+        "reason": "住宿需确认是否中国大陆，且报销期限存在冲突需确认适用规则。",
+        "result": {
+          "status": "needs_clarification",
+          "citations": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            },
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            },
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+            }
+          ],
+          "missing_info": [
+            "出差地点是否在中国大陆，以判断409元一晚住宿是否适用每晚500元上限。",
+            "350元高铁费用的具体报销规则，现有检索结果未提供交通费标准。",
+            "15天与30天两个报销申请期限均适用全体员工且无替代关系，需确认以哪项制度为准。"
+          ],
+          "question": "本次出差是否在中国大陆？另外，报销提交期限应适用15天还是30天的制度？"
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "fd9a8a139e484a26be5a83bf7cac4c45",
+  "recorded_at": "2026-11-01T01:42:38.964227+00:00",
+  "mode": "live",
+  "input": {
+    "question": "员工报销应在费用发生后多少天内提交？",
+    "history": []
+  },
+  "model_response_count": 1,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "000feac888be63067446e53971e104ec22644ad7ce26aacee13ee22b9daaa287",
+  "result": {
+    "status": "incomplete",
+    "answer": "本次查询未完成，不能确认结论。",
+    "citations": [],
+    "missing_info": [
+      "model_response_incomplete"
+    ],
+    "question": ""
+  },
+  "tool_calls": 0,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "model_response_incomplete",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934973276485f505d6745d4b07a5efbd0dd2f16cfcb9e8683",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 1400,
+          "prompt_tokens": 717,
+          "total_tokens": 2117,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "length",
+        "request_sha256": "be68b71ac2936b03992b8d73084f8b115af8e71ef5d88a130aa9b23dc4e6c854",
+        "response_content_sha256": "7aeb92faf56f91be36473cb295dfabaa876fcdec59e8bab4bab9375c256ab87d"
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "evidence_single",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [
+      "EXP-B"
+    ],
+    "synthetic_data": true
+  }
+}

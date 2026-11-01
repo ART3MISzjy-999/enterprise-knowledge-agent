@@ -1,0 +1,524 @@
+{
+  "schema_version": 1,
+  "run_id": "145b1e5771c44cc4ba81bde66459a5d1",
+  "recorded_at": "2026-11-01T04:40:25.464533+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是实习生，我想要报销我昨天出差的高铁费用350元，还有宾馆费用409元，请问要怎么报销",
+    "history": []
+  },
+  "model_response_count": 6,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "conflict",
+    "citations": [
+      {
+        "doc_id": "EXP-B",
+        "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+        "version_date": "2026-03-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      },
+      {
+        "doc_id": "EXP-A",
+        "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+        "version_date": "2026-01-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "实习生出差高铁费用350元是否可报销、适用标准及具体报销流程，现有资料没有明确说明。",
+      "实习生住宿费用409元是否可报销、适用住宿限额及具体报销流程，现有资料没有明确说明；现有住宿标准仅明确适用于正式员工，不能据此直接判断实习生。",
+      "费用报销申请应适用15天还是30天期限，两份全体员工制度规定不一致，且均未说明优先级或替代关系，需要权威确认。"
+    ],
+    "question": "请确认实习生差旅费用应优先适用哪份报销制度，以及15天和30天提交期限以哪一个为准？",
+    "answer": "资料存在冲突，尚不能确定适用结论；版本日期本身不足以确定优先级。\n[EXP-B] 【优先级待确认】员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n[EXP-A] 【优先级待确认】员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n尚待确认：\n- 实习生出差高铁费用350元是否可报销、适用标准及具体报销流程，现有资料没有明确说明。\n- 实习生住宿费用409元是否可报销、适用住宿限额及具体报销流程，现有资料没有明确说明；现有住宿标准仅明确适用于正式员工，不能据此直接判断实习生。\n- 费用报销申请应适用15天还是30天期限，两份全体员工制度规定不一致，且均未说明优先级或替代关系，需要权威确认。\n请确认实习生差旅费用应优先适用哪份报销制度，以及15天和30天提交期限以哪一个为准？",
+    "coverage": "partial"
+  },
+  "tool_calls": 4,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生出差高铁费用和宾馆住宿费用报销流程标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-IN",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "read_document",
+      "decision_basis": "查找实习生差旅报销制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793507991700023c86cf9fdd5b616907ba6841dcfa8a9f7fd9",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 2449,
+          "total_tokens": 2489,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e1e8509813235fb56bc2490cfaaada54ccb587cfe4f650424f87d88ba1c01425",
+        "response_content_sha256": "988f52baf3dd70cdbc3f812c434ea45f47223d285fc2adedd786a723005f2a77"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "实习生出差高铁费用和宾馆住宿费用报销流程标准",
+          "top_k": 5
+        },
+        "reason": "查找实习生差旅报销制度"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.9659,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.4161,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 4.935,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 4.8971,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "两份报销期限规则重叠且无替代关系，需要读取原文核对冲突。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-B"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-B",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "两份报销期限规则重叠且无替代关系，需要读取原文核对冲突。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793507994420981eef1a5f6531812ca0302533eb09b3487e4f",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 3117,
+          "total_tokens": 3153,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d9f40573d3502fa803eb9cac81639b1fce8ac96cfc88db23e65983b0dac67fc8",
+        "response_content_sha256": "ac8244d51eb7ec0368d0fd6ab7451246b3fbc6c75740883026163a2d68995020"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "两份报销期限规则重叠且无替代关系，需要读取原文核对冲突。",
+        "arguments": {
+          "doc_id": "EXP-B"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-B",
+          "title": "费用报销操作 FAQ",
+          "version_date": "2026-03-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+          "version_peer_ids": [
+            "EXP-A"
+          ]
+        }
+      },
+      "next_decision_basis": "报销期限存在并行版本，需读取原文核对冲突。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "search_documents",
+      "decision_basis": "报销期限存在并行版本，需读取原文核对冲突。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793507997556bcd9e2286c8e630eb6bd21bb14e8ed8fa0e56c",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 3251,
+          "total_tokens": 3283,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "cfb4300ec85b98f1d16a2bebe434b4acb2241676ad43ea3a14ec579670bcc797",
+        "response_content_sha256": "35f31536538f51b32fb457cf3195153df439cbdeb312b5ba870f51b4e7199f7a"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "EXP-A"
+        },
+        "reason": "报销期限存在并行版本，需读取原文核对冲突。"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+          "version_peer_ids": [
+            "EXP-B"
+          ]
+        }
+      },
+      "next_decision_basis": "还需查找实习生差旅交通住宿及具体报销流程"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生 差旅 高铁 火车 交通 住宿 宾馆 报销 标准 流程",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "TRAVEL-HOTEL",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "finish",
+      "decision_basis": "还需查找实习生差旅交通住宿及具体报销流程",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508001322463b2e7ab2e4caf441b2615bb02bf1588c5392",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 3385,
+          "total_tokens": 3439,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "70f6639299e60a1b5188910e296a7ecacadf0793e254a12baecf15b244e70a88",
+        "response_content_sha256": "39fa39199391a17970ae8b54a6d372fac39d6f5dee6aaf842a2a28ef16e956b2"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "还需查找实习生差旅交通住宿及具体报销流程",
+        "arguments": {
+          "query": "实习生 差旅 高铁 火车 交通 住宿 宾馆 报销 标准 流程",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.4161,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 5.3734,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "报销期限存在制度冲突，且实习生交通住宿规则不足"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "finish",
+      "decision_basis": "报销期限存在制度冲突，且实习生交通住宿规则不足",
+      "validation_errors": [
+        "clarification_must_be_a_question",
+        "conflict_requires_two_read_documents"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508005554619b169e3834457b465f4a1674da52f8b04201",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 318,
+          "prompt_tokens": 4062,
+          "total_tokens": 4380,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "188b076fd2fa92e46218562e097b2a93a7a35446c0e6754acd2db88b59321bfa",
+        "response_content_sha256": "177f6e579bdb6a48f30beee82a3a952e4d398e0f3fe28c8a07516567c5e503e7"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "报销期限存在制度冲突，且实习生交通住宿规则不足",
+        "result": {
+          "status": "conflict",
+          "citations": [
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            },
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            }
+          ],
+          "missing_info": [
+            "实习生是否适用全体员工报销期限制度，以及15天与30天期限冲突时应以哪份制度为准，现有资料没有明确说明。",
+            "实习生高铁费用350元是否可报销、按什么标准报销以及具体提交/审批流程，现有资料没有明确说明。",
+            "实习生宾馆费用409元是否可报销、适用什么住宿标准以及具体提交/审批流程，现有资料没有明确说明；已检索到的500元住宿上限仅适用于正式员工，不能据此确认实习生标准。"
+          ],
+          "question": "请确认实习生报销应优先适用《费用报销操作 FAQ》的15天期限，还是《费用报销提交规则》的30天期限？另请提供适用于实习生的差旅交通和住宿报销制度或审批要求。"
+        }
+      },
+      "next_decision_basis": "报销期限存在冲突，且实习生交通住宿标准和流程缺失"
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:conflict",
+      "decision_basis": "报销期限存在冲突，且实习生交通住宿标准和流程缺失",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508017632752861ac95076ae8724c9acea65a674e71f1bf",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 244,
+          "prompt_tokens": 4081,
+          "total_tokens": 4325,
+          "prompt_tokens_details": {
+            "cached_tokens": 2872
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "46a2fe9e17b06299458fed52331e1b3d620757862314e30eb6b029bdfd7cab4f",
+        "response_content_sha256": "a1202e78f2a063547a0deeb97b3537813047dfb5ff0ba9f22450429055755962"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "报销期限存在冲突，且实习生交通住宿标准和流程缺失",
+        "result": {
+          "status": "conflict",
+          "citations": [
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            },
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+            }
+          ],
+          "missing_info": [
+            "实习生出差高铁费用350元是否可报销、适用标准及具体报销流程，现有资料没有明确说明。",
+            "实习生住宿费用409元是否可报销、适用住宿限额及具体报销流程，现有资料没有明确说明；现有住宿标准仅明确适用于正式员工，不能据此直接判断实习生。",
+            "费用报销申请应适用15天还是30天期限，两份全体员工制度规定不一致，且均未说明优先级或替代关系，需要权威确认。"
+          ],
+          "question": "请确认实习生差旅费用应优先适用哪份报销制度，以及15天和30天提交期限以哪一个为准？"
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

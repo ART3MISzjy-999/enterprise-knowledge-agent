@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "run_id": "c3cc44efb5a04fc1a1273bcd0da9cab4",
+  "recorded_at": "2026-11-01T06:32:58.266696+00:00",
+  "mode": "live",
+  "input": {
+    "question": "没获许可就把客户文件传进自己的云盘是不行的吧？如果真这么做，公司会罚多少钱或者直接辞退？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "SECURITY",
+        "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+        "version_date": "2026-01-15",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "现有资料未明确未经授权将客户资料上传至个人网盘的具体处罚措施（包括罚款金额或是否直接辞退）。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。\n现有资料尚不能确认的部分：\n- 现有资料未明确未经授权将客户资料上传至个人网盘的具体处罚措施（包括罚款金额或是否直接辞退）。",
+    "coverage": "partial"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "未经许可 客户文件 个人云盘 处罚 辞退",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "EXP-A",
+          "EXP-B",
+          "LEAVE-IN"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找关于未经许可上传客户文件至个人云盘的规定及处罚措施",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514754675a10e5427f14403173c1858eb68257f66ce909e",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 51,
+          "prompt_tokens": 2396,
+          "total_tokens": 2447,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a94b146f198d8e291cf929c64c988a88c3d7709e91c8f52202b45c4232fd4cb0",
+        "response_content_sha256": "d5163c4597e2093cf356dedd64b77e0826df4301be0a72fb0e6279cbe9e82aed"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找关于未经许可上传客户文件至个人云盘的规定及处罚措施",
+        "arguments": {
+          "query": "未经许可 客户文件 个人云盘 处罚 辞退",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.1394,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 1.8801,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 1.3451,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要查找未经授权上传客户资料到个人网盘的处罚规定，包括罚款金额和辞退相关条款"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户资料 个人网盘 处罚 罚款 辞退",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "PRODUCT-EXPORT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "read_document",
+      "decision_basis": "需要查找未经授权上传客户资料到个人网盘的处罚规定，包括罚款金额和辞退相关条款",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514760117e1d4082764930dbbed2aa61ee6ceaee48be215",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 2932,
+          "total_tokens": 2986,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "1ac0d2d684a469f1d5402bfa51e9c6394f4130dd5f3833bb0f62795c7e8d5619",
+        "response_content_sha256": "2f00257e2d22b2d82a000aff348d4fff4cccf54a68debf4bc303f117d42bdea2"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要查找未经授权上传客户资料到个人网盘的处罚规定，包括罚款金额和辞退相关条款",
+        "arguments": {
+          "query": "客户资料 个人网盘 处罚 罚款 辞退",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 13.131,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.3451,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "先完整读取客户资料保管规范原文，确认是否包含处罚相关条款"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "SECURITY"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "SECURITY",
+        "characters": 37
+      },
+      "next_action": "finish",
+      "decision_basis": "先完整读取客户资料保管规范原文，确认是否包含处罚相关条款",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514764517817b06a784e756ea4b86a97afa590e06d34d71",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 37,
+          "prompt_tokens": 3354,
+          "total_tokens": 3391,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "26547e11266dbdbf51f1799a799081f75644f567bc6f6e0a0c4410504d6d5e8d",
+        "response_content_sha256": "52ec50362123a4333de750ad5c9a892f5ca0e719b67a915927e50f0ac55e7cd3"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "先完整读取客户资料保管规范原文，确认是否包含处罚相关条款",
+        "arguments": {
+          "doc_id": "SECURITY"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "SECURITY",
+          "title": "客户资料保管规范",
+          "version_date": "2026-01-15",
+          "scope": "全体员工",
+          "policy_key": "customer_data",
+          "supersedes": [],
+          "content": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "已读取客户资料保管规范，明确禁止未经授权上传个人网盘，但未规定具体处罚金额或辞退标准。"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已读取客户资料保管规范，明确禁止未经授权上传个人网盘，但未规定具体处罚金额或辞退标准。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351477029040d42680ebe1d66ebf48a14f17e8d4c78ee4c3",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 114,
+          "prompt_tokens": 3481,
+          "total_tokens": 3595,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "44cba47eed31025ab248c62459901729a7f148f1c560fc868199b81bc01c4eb6",
+        "response_content_sha256": "c75eed4404dda77d59e47a55a6b8f3a6ba11343259538b4e5e24adca187e8316"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已读取客户资料保管规范，明确禁止未经授权上传个人网盘，但未规定具体处罚金额或辞退标准。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "SECURITY",
+              "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+            }
+          ],
+          "missing_info": [
+            "现有资料未明确未经授权将客户资料上传至个人网盘的具体处罚措施（包括罚款金额或是否直接辞退）。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M14",
+  "evaluation_turn": 1
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "run_id": "551cdeea5dba4d5eb17263045c375452",
+  "recorded_at": "2026-11-01T01:52:22.077054+00:00",
+  "mode": "live",
+  "input": {
+    "question": "那实习生呢？",
+    "history": [
+      {
+        "role": "user",
+        "content": "正式员工每年有多少天带薪年假？"
+      },
+      {
+        "role": "assistant",
+        "content": "正式员工每个完整服务年度享有12天带薪年假。"
+      }
+    ]
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "answered",
+    "citations": [
+      {
+        "doc_id": "LEAVE-IN",
+        "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+        "version_date": "2026-02-01",
+        "scope": "实习生",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [],
+    "question": "",
+    "answer": "依据已获取的适用资料：\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "invalid_decision",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "search_documents",
+      "decision_basis": "",
+      "validation_errors": [
+        "unknown action"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497931135cb51a7f1ce26cb17e4ce27a7e81503bd844155",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 1580,
+          "total_tokens": 1620,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "2c62e67d3dd31167f230f9ed8041ed0ffd0e29424f61fe72fc0535191435cdf1",
+        "response_content_sha256": "f0810bb7672ae88c5da66ad0f87afca8d8cc278ef7865cbf2937d42689596b0c"
+      },
+      "next_decision_basis": "查找实习生的带薪年假相关制度"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生带薪年假相关规定",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "LEAVE-FT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "查找实习生的带薪年假相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934979345091b663178cfd0a7f7d426544ba1e44de3305fc2",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 35,
+          "prompt_tokens": 1583,
+          "total_tokens": 1618,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a3e73df3244282e094559c232bb2898b3aef4e0eeaa11c1cc8e08d23014d89e4",
+        "response_content_sha256": "422d765b62efcd4d14a44c2eacba065911092506f6517df20a634c3e8ed1ee31"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "实习生带薪年假相关规定",
+          "top_k": 5
+        },
+        "reason": "查找实习生的带薪年假相关制度"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 10.4302,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 4.8416,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已获取实习生年假相关规定"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:answered",
+      "decision_basis": "已获取实习生年假相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179349793807939b762a1076dab7efa142e82428347fd412c26",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 80,
+          "prompt_tokens": 1868,
+          "total_tokens": 1948,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c049cdccb70d2c508eea14173e6c4c5a06404b1727d0f3f900e6e6b8f223b656",
+        "response_content_sha256": "05f2b85913f165d15b947ff82dfed7df5e319ad31d120260301c8277a79cfccf"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已获取实习生年假相关规定",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "LEAVE-IN",
+              "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"
+            }
+          ],
+          "missing_info": [],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "followup",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

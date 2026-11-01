@@ -1,0 +1,10 @@
+[
+  {"doc_id":"LEAVE-FT","title":"正式员工年假 FAQ","version_date":"2026-01-10","scope":"正式员工","policy_key":"annual_leave","supersedes":[],"content":"正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"},
+  {"doc_id":"LEAVE-IN","title":"实习生休假说明","version_date":"2026-02-01","scope":"实习生","policy_key":"annual_leave","supersedes":[],"content":"实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"},
+  {"doc_id":"EXP-A","title":"费用报销提交规则","version_date":"2026-01-01","scope":"全体员工","policy_key":"expense_deadline","supersedes":[],"content":"员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"},
+  {"doc_id":"EXP-B","title":"费用报销操作 FAQ","version_date":"2026-03-01","scope":"全体员工","policy_key":"expense_deadline","supersedes":[],"content":"员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"},
+  {"doc_id":"IT-VPN","title":"远程办公 VPN 登录","version_date":"2026-04-12","scope":"全体员工","policy_key":"vpn_login","supersedes":[],"content":"远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。"},
+  {"doc_id":"PRODUCT-EXPORT","title":"合成产品 Aurora 编辑器导出 FAQ","version_date":"2026-05-01","scope":"Aurora标准版","policy_key":"export_format","supersedes":[],"content":"Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。"},
+  {"doc_id":"TRAVEL-HOTEL","title":"差旅住宿标准","version_date":"2026-06-01","scope":"正式员工","policy_key":"hotel_allowance","supersedes":[],"content":"正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"},
+  {"doc_id":"SECURITY","title":"客户资料保管规范","version_date":"2026-01-15","scope":"全体员工","policy_key":"customer_data","supersedes":[],"content":"客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"}
+]

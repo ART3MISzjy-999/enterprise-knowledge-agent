@@ -1,0 +1,54 @@
+test_answered_cannot_hide_unresolved_gaps (test_agent.AgentTests.test_answered_cannot_hide_unresolved_gaps) ... ok
+test_audit_detects_evidence_tampering (test_agent.AgentTests.test_audit_detects_evidence_tampering) ... ok
+test_changed_number_cannot_pass_exact_quote_check (test_agent.AgentTests.test_changed_number_cannot_pass_exact_quote_check) ... ok
+test_clarification_can_happen_without_tools (test_agent.AgentTests.test_clarification_can_happen_without_tools) ... ok
+test_cli_mock_is_explicit_and_cannot_answer_arbitrary_questions (test_agent.AgentTests.test_cli_mock_is_explicit_and_cannot_answer_arbitrary_questions) ... ok
+test_conflict_must_read_both_originals (test_agent.AgentTests.test_conflict_must_read_both_originals) ... ok
+test_disjoint_scopes_do_not_trigger_conflict_guard (test_agent.AgentTests.test_disjoint_scopes_do_not_trigger_conflict_guard) ... ok
+test_duplicate_success_does_not_reexecute (test_agent.AgentTests.test_duplicate_success_does_not_reexecute) ... ok
+test_explicit_replacement_metadata_requires_original_read (test_agent.AgentTests.test_explicit_replacement_metadata_requires_original_read) ... ok
+test_history_passed_to_model_but_not_used_as_evidence (test_agent.AgentTests.test_history_passed_to_model_but_not_used_as_evidence) ... ok
+test_invalid_history_and_limits_are_rejected (test_agent.AgentTests.test_invalid_history_and_limits_are_rejected) ... ok
+test_invalid_model_json_retries_with_feedback_and_budget (test_agent.AgentTests.test_invalid_model_json_retries_with_feedback_and_budget) ... ok
+test_malformed_decision_is_bounded_and_recoverable (test_agent.AgentTests.test_malformed_decision_is_bounded_and_recoverable) ... ok
+test_missing_scope_is_unknown_not_assumed_disjoint (test_agent.AgentTests.test_missing_scope_is_unknown_not_assumed_disjoint) ... ok
+test_model_failure_never_falls_back_to_mock (test_agent.AgentTests.test_model_failure_never_falls_back_to_mock) ... ok
+test_model_repairs_bad_quote_using_validation_feedback (test_agent.AgentTests.test_model_repairs_bad_quote_using_validation_feedback) ... ok
+test_newer_document_does_not_automatically_override (test_agent.AgentTests.test_newer_document_does_not_automatically_override) ... ok
+test_nine_acceptance_scenarios_offline (test_agent.AgentTests.test_nine_acceptance_scenarios_offline) ... ok
+test_no_evidence_and_tool_outage_are_distinct (test_agent.AgentTests.test_no_evidence_and_tool_outage_are_distinct) ... ok
+test_question_field_cannot_smuggle_an_unverified_answer (test_agent.AgentTests.test_question_field_cannot_smuggle_an_unverified_answer) ... ok
+test_retest_archives_are_not_overwritten (test_agent.AgentTests.test_retest_archives_are_not_overwritten) ... ok
+test_retry_after_transient_failure_is_allowed (test_agent.AgentTests.test_retry_after_transient_failure_is_allowed) ... ok
+test_sentence_fragment_cannot_drop_negation (test_agent.AgentTests.test_sentence_fragment_cannot_drop_negation) ... ok
+test_separate_runs_do_not_share_evidence (test_agent.AgentTests.test_separate_runs_do_not_share_evidence) ... ok
+test_step_limit_is_hard (test_agent.AgentTests.test_step_limit_is_hard) ... ok
+test_synonym_recall_without_vector_database (test_agent.AgentTests.test_synonym_recall_without_vector_database) ... ok
+test_tool_feedback_is_delivered_before_next_model_decision (test_agent.AgentTests.test_tool_feedback_is_delivered_before_next_model_decision) ... ok
+test_tool_limit_prevents_execution (test_agent.AgentTests.test_tool_limit_prevents_execution) ... ok
+test_unexpected_tool_exception_becomes_observation (test_agent.AgentTests.test_unexpected_tool_exception_becomes_observation) ... ok
+test_unknown_question_has_no_matching_evidence (test_agent.AgentTests.test_unknown_question_has_no_matching_evidence) ... ok
+test_unobserved_document_cannot_be_cited_even_if_in_corpus (test_agent.AgentTests.test_unobserved_document_cannot_be_cited_even_if_in_corpus) ... ok
+test_unvalidated_freeform_answer_field_is_rejected (test_agent.AgentTests.test_unvalidated_freeform_answer_field_is_rejected) ... ok
+test_api_outage_does_not_count_as_tool_failure_acceptance (test_model.AdapterTests.test_api_outage_does_not_count_as_tool_failure_acceptance) ... ok
+test_config_rejects_unsafe_url_and_payload_overrides (test_model.AdapterTests.test_config_rejects_unsafe_url_and_payload_overrides) ... ok
+test_connection_error_does_not_become_a_mock_answer (test_model.AdapterTests.test_connection_error_does_not_become_a_mock_answer) ... ok
+test_env_file_is_not_executed_and_does_not_override_environment (test_model.AdapterTests.test_env_file_is_not_executed_and_does_not_override_environment) ... ok
+test_http_error_does_not_leak_body_or_credentials (test_model.AdapterTests.test_http_error_does_not_leak_body_or_credentials) ... ok
+test_invalid_json_is_explicit_failure (test_model.AdapterTests.test_invalid_json_is_explicit_failure) ... ok
+test_parses_real_protocol_and_discards_private_reasoning (test_model.AdapterTests.test_parses_real_protocol_and_discards_private_reasoning) ... ok
+test_provider_error_code_preserved_without_sensitive_message (test_model.AdapterTests.test_provider_error_code_preserved_without_sensitive_message) ... ok
+test_redirects_cannot_forward_authorization_header (test_model.AdapterTests.test_redirects_cannot_forward_authorization_header) ... ok
+test_strict_schema_wrapper_is_unwrapped_without_changing_decision (test_model.AdapterTests.test_strict_schema_wrapper_is_unwrapped_without_changing_decision) ... ok
+test_truncated_model_output_is_not_accepted (test_model.AdapterTests.test_truncated_model_output_is_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.023s
+
+OK
+
+后续联合修复验证：49 tests，OK（原始运行已在本轮工具输出中记录）；完整复测见examples/retest-report.md。
+
+新混合测试集与评估器校验：51 tests，OK（本轮实际运行）。真实20组和内容审读见统一报告。
+
+修复后自动化验证：54 tests，OK。身份变体/否定/假设及额外引用冲突回归通过。原9场景9/9；20混合整轮19/20，M19单独重跑通过。原始模型结果见03-evaluation.md引用，不将此摘要当作原始Trace。

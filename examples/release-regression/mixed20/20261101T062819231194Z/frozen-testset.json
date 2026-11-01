@@ -1,0 +1,532 @@
+{
+  "version": "mixed-v1",
+  "synthetic": true,
+  "frozen_before_execution": true,
+  "cases": [
+    {
+      "id": "M01",
+      "name": "年假与年终奖金",
+      "turns": [
+        "我已转正，在这儿干满一个服务年了，带工资的假能有多少天？休完以后年底奖金会被扣吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-FT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "奖金",
+            "年终"
+          ]
+        ],
+        "review_note": "确认12天；不推断奖金政策。"
+      }
+    },
+    {
+      "id": "M02",
+      "name": "休假提前量与审批入口",
+      "turns": [
+        "我是正式员工，准备请年休，最晚得提前几个上班日找主管？顺便把内部请假网页地址发给我。"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-FT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "入口",
+            "网页",
+            "网址",
+            "链接",
+            "地址"
+          ]
+        ],
+        "review_note": "保留提前3工作日，入口未知。"
+      }
+    },
+    {
+      "id": "M03",
+      "name": "实习请假与月度次数",
+      "turns": [
+        "我是实习同学，下周有私事要请假，提前多久跟导师打招呼？每个月可以这么请多少回而不影响考核？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-IN"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "次数",
+            "多少回",
+            "考核",
+            "每月"
+          ]
+        ],
+        "review_note": "提前1工作日有依据；次数/考核无依据。"
+      }
+    },
+    {
+      "id": "M04",
+      "name": "实习带薪与保险",
+      "turns": [
+        "我还在实习期，能和转正同事拿一样的年度带薪假么？请假这几天的意外保险是不是也一定照常保？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-IN"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "保险"
+          ]
+        ],
+        "review_note": "不得套正式员工12天；不承诺保险。"
+      }
+    },
+    {
+      "id": "M05",
+      "name": "报账期限与退款到账",
+      "turns": [
+        "员工垫出去的钱应该隔多久把报账申请递上去？交完以后财务最迟几天必须把钱打回来？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "EXP-A",
+          "EXP-B"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "到账",
+            "打款",
+            "退款",
+            "返款",
+            "支付",
+            "处理时限",
+            "审核时长"
+          ]
+        ],
+        "review_note": "交叉核对15/30；到账时限未知。"
+      }
+    },
+    {
+      "id": "M06",
+      "name": "较新版报销与短信服务",
+      "turns": [
+        "报账FAQ看起来更新些，我是不是只按较短期限交就行？你还能到期前一天给我自动发短信提醒吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "EXP-A",
+          "EXP-B"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "短信",
+            "提醒"
+          ]
+        ],
+        "review_note": "日期不定权威；无短信工具。"
+      }
+    },
+    {
+      "id": "M07",
+      "name": "住宿限额与餐补",
+      "turns": [
+        "我已经转正，在广州跑业务准备订房，单晚最多能花多少？一天的伙食津贴又能拿多少？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "TRAVEL-HOTEL"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "餐补",
+            "伙食",
+            "餐费",
+            "津贴"
+          ]
+        ],
+        "review_note": "住宿大陆正式每晚500；餐补未知。"
+      }
+    },
+    {
+      "id": "M08",
+      "name": "超额房费与班次",
+      "turns": [
+        "我是正式员工，这次去南京的旅馆一夜要620块，按制度订之前该找谁确认？明早最早一趟去南京的高铁几点开？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "TRAVEL-HOTEL"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "高铁",
+            "班次",
+            "列车",
+            "车次"
+          ]
+        ],
+        "review_note": "超额预订前部门负责人书面确认；无实时班次。"
+      }
+    },
+    {
+      "id": "M09",
+      "name": "登录验证与重置网址",
+      "turns": [
+        "我在家连公司的远程网络，除了账户口令还得输入什么？要是手机丢了，在哪个网址自助重置那个验证方式？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "IT-VPN"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "重置",
+            "网址",
+            "手机丢",
+            "丢失"
+          ]
+        ],
+        "review_note": "动态验证码有依据，重置网址未知。"
+      }
+    },
+    {
+      "id": "M10",
+      "name": "账号锁定与全天值班",
+      "turns": [
+        "远程登录的验证连续输错五回，被锁后通常得等几分钟、能找谁？IT那边是不是凌晨三点也有人接电话？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "IT-VPN"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "值班",
+            "服务时间",
+            "凌晨",
+            "24",
+            "全天",
+            "工作时间"
+          ]
+        ],
+        "review_note": "15分钟及IT服务台；值班时段未知。"
+      }
+    },
+    {
+      "id": "M11",
+      "name": "视频规格与字幕",
+      "turns": [
+        "Aurora普通标准套餐输出视频能用哪种封装、画面最高多清楚？它还能自动听语音生成字幕吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "PRODUCT-EXPORT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "字幕",
+            "语音"
+          ]
+        ],
+        "review_note": "MP4/1080p有依据，不编字幕能力。"
+      }
+    },
+    {
+      "id": "M12",
+      "name": "更高分辨率与订阅价",
+      "turns": [
+        "我用Aurora标准档，把成片存出来的分辨率上限是多少？想升到能出超高清的套餐，每个月要花多少钱？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "PRODUCT-EXPORT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "价格",
+            "价钱",
+            "多少钱",
+            "费用",
+            "订阅",
+            "定价"
+          ]
+        ],
+        "review_note": "1080p有依据，4K/升级套餐价格未说明。"
+      }
+    },
+    {
+      "id": "M13",
+      "name": "客户数据与个人终端",
+      "turns": [
+        "客户信息放在公司认可的应用里才合规，对吧？那么所有自用手机、电脑都连打开查看也绝对不允许吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "SECURITY"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "设备",
+            "手机",
+            "电脑",
+            "查看",
+            "终端"
+          ]
+        ],
+        "review_note": "认可系统同义；禁止网盘不等于禁止设备访问。"
+      }
+    },
+    {
+      "id": "M14",
+      "name": "个人云盘与处罚",
+      "turns": [
+        "没获许可就把客户文件传进自己的云盘是不行的吧？如果真这么做，公司会罚多少钱或者直接辞退？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "SECURITY"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "处罚",
+            "罚款",
+            "罚多少",
+            "辞退",
+            "处分"
+          ]
+        ],
+        "review_note": "保留未经授权条件，不编处罚。"
+      }
+    },
+    {
+      "id": "M15",
+      "name": "两个已有制度加实时天气",
+      "turns": [
+        "我是转正员工，年休额度有几天、远程办公进内网又得用什么验证？另外北京明天会下雨吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-FT",
+          "IT-VPN"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "天气",
+            "下雨",
+            "气象"
+          ]
+        ],
+        "review_note": "两个已知事项都引用；不编实时天气。"
+      }
+    },
+    {
+      "id": "M16",
+      "name": "房费和导出加企业规划",
+      "turns": [
+        "我转正后在杭州出差住宿一晚的费用标准多少？Aurora标准档能输出什么格式？再问一句公司明年打算上市吗？"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "TRAVEL-HOTEL",
+          "PRODUCT-EXPORT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "上市",
+            "IPO",
+            "资本"
+          ]
+        ],
+        "review_note": "两篇证据同时保留；上市计划未知。"
+      }
+    },
+    {
+      "id": "M17",
+      "name": "身份澄清续答与奖金",
+      "turns": [
+        "我在这里干满一年，年休能放几天还领工资？年度绩效奖会不会跟着少？",
+        "补充一下，我已转成正式员工了；刚才年休和绩效奖金的两个问题都想了解。"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "LEAVE-FT"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "奖金",
+            "绩效"
+          ]
+        ],
+        "review_note": "后轮使用真实前轮历史，不能只因补身份就漏掉奖金缺口。"
+      }
+    },
+    {
+      "id": "M18",
+      "name": "身份纠正住宿和交通",
+      "turns": [
+        "我是实习生，去武汉出差住店花了409元，车票350元，住宿有没有金额标准，交通票又怎么报？",
+        "前面身份讲错了，我已是正式员工；房费确实是一晚409元，住宿标准和那350元交通票都还请帮我核对。"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "TRAVEL-HOTEL"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "交通",
+            "车票",
+            "高铁"
+          ]
+        ],
+        "review_note": "保留纠正身份、一晚；不把正式住宿标准当交通标准。"
+      }
+    },
+    {
+      "id": "M19",
+      "name": "错误范围追问续答",
+      "turns": [
+        "客户材料只放公司许可系统可以理解为不许放到个人云盘么？这是否也代表用私人的电脑登录看一眼都违规？",
+        "我说的是自己的电脑仅在线查看，不把文件下载到本机；公司系统存储要求和这种访问方式都帮我分开说明。"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "SECURITY"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "电脑",
+            "查看",
+            "访问",
+            "终端"
+          ]
+        ],
+        "review_note": "新增条件不等于已有访问授权，保留已知存储条款。"
+      }
+    },
+    {
+      "id": "M20",
+      "name": "版本选择与节日放假",
+      "turns": [
+        "报销申请递交期限到底几天？下个月我们公司哪天放假，也能一并告诉我吗？",
+        "提交期限我倾向用FAQ里那一版，但没有人给我确认优先级；假期安排那一项也还想知道。"
+      ],
+      "expected": {
+        "required_doc_ids": [
+          "EXP-A",
+          "EXP-B"
+        ],
+        "allowed_statuses": [
+          "insufficient",
+          "needs_clarification",
+          "conflict"
+        ],
+        "gap_keyword_groups": [
+          [
+            "放假",
+            "假期",
+            "通知",
+            "休假安排"
+          ]
+        ],
+        "review_note": "用户倾向不消除15/30冲突；不凭公共节日推公司通知。"
+      }
+    }
+  ]
+}

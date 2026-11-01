@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "run_id": "b3c79497f96f432cb6554d5503fdf518",
+  "recorded_at": "2026-11-01T05:26:40.063590+00:00",
+  "mode": "live",
+  "input": {
+    "question": "前面身份讲错了，我已是正式员工；房费确实是一晚409元，住宿标准和那350元交通票都还请帮我核对。",
+    "history": [
+      {
+        "role": "user",
+        "content": "我是实习生，去武汉出差住店花了409元，车票350元，住宿有没有金额标准，交通票又怎么报？"
+      },
+      {
+        "role": "assistant",
+        "content": "以下是已核对的资料（具体适用范围见各条）：\n[TRAVEL-HOTEL] 【仅适用正式员工，不能直接套用于你当前的实习生身份】正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。\n现有资料尚不能确认的部分：\n- 实习生出差住宿是否有金额标准、是否适用正式员工标准，现有资料没有明确说明\n- 实习生出差交通车票的报销规则，现有资料没有明确说明"
+      }
+    ]
+  },
+  "model_response_count": 6,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "正式员工出差交通票（350元车票）的报销标准及规则，现有资料没有明确说明"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[TRAVEL-HOTEL] 【仅适用正式员工，不能直接套用于你当前的实习生身份】正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n现有资料尚不能确认的部分：\n- 正式员工出差交通票（350元车票）的报销标准及规则，现有资料没有明确说明",
+    "coverage": "partial"
+  },
+  "tool_calls": 5,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工出差住宿标准 交通票报销规则",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "EXP-A",
+          "LEAVE-FT",
+          "EXP-B",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户已更正为正式员工，需要检索正式员工出差住宿标准和交通票报销规则的相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510765928139663acfcb9459f67ee30b34f6b9765d00a43",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 55,
+          "prompt_tokens": 2706,
+          "total_tokens": 2761,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "893ec52fcff9eb832af11e7cb9db6238b9c9b9cee8200c5ce35a92bf2caf6413",
+        "response_content_sha256": "9b0e96374b6a30dba5ec96f8739b372461db726ee9fc1d910f860e0945c92b8d"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户已更正为正式员工，需要检索正式员工出差住宿标准和交通票报销规则的相关制度。",
+        "arguments": {
+          "query": "正式员工出差住宿标准 交通票报销规则",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 9.6667,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 4.0415,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": "用户已更正为正式员工，住宿标准已找到依据，但交通票报销规则尚无明确资料，需要检索正式员工出差交通费用报销相关制度。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工出差交通票报销规则",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "EXP-A",
+          "LEAVE-FT",
+          "EXP-B",
+          "LEAVE-IN"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户已更正为正式员工，住宿标准已找到依据，但交通票报销规则尚无明确资料，需要检索正式员工出差交通费用报销相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510774376040314dafb3c19c3ba1b13acdc034310fd58a5",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 3365,
+          "total_tokens": 3435,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c070ab992c877f652b9440e93fccbaa064c13ae1dbd50a2e7723c88f73d2ee58",
+        "response_content_sha256": "5c1b1f4c3a178469b58a7fc21bb593960250895ae6c7cc42025f83e2807bf5ed"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户已更正为正式员工，住宿标准已找到依据，但交通票报销规则尚无明确资料，需要检索正式员工出差交通费用报销相关制度。",
+        "arguments": {
+          "query": "正式员工出差交通票报销规则",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.2933,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 4.0415,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.7063,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要查找正式员工出差交通票（如火车票）的具体报销规则，现有检索结果未覆盖该内容"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工出差交通费报销 火车票报销标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "search_documents",
+      "decision_basis": "需要查找正式员工出差交通票（如火车票）的具体报销规则，现有检索结果未覆盖该内容",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351077997842d61436b42c4faf3c1605a49dd3cadd543732",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 4019,
+          "total_tokens": 4073,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e495c6f4c945de2c0960883f531da4ee479e4cf3a4fc33a8525484acba3e349c",
+        "response_content_sha256": "2923add123a44324e889f87a90df1bf116e5e09bcffd9a7abd1d84b42a06b0a5"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要查找正式员工出差交通票（如火车票）的具体报销规则，现有检索结果未覆盖该内容",
+        "arguments": {
+          "query": "正式员工出差交通费报销 火车票报销标准",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 5.5069,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": "之前检索未找到正式员工出差交通票报销规则，需更换关键词继续查找交通费相关制度"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "差旅交通费 出差交通报销标准 正式员工",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "search_documents",
+      "decision_basis": "之前检索未找到正式员工出差交通票报销规则，需更换关键词继续查找交通费相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935107893594f08adabc2a0b7ee0ad3a2fcb671c8c4cdd9d1",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 53,
+          "prompt_tokens": 4677,
+          "total_tokens": 4730,
+          "prompt_tokens_details": {
+            "cached_tokens": 2872
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "406108add81a41eea76466288e73951998d05b7defede8a6699c18e27e42a0d6",
+        "response_content_sha256": "d8d08ee6acabff38aa99ec9498a7f63ec9a461a4a430c4a18a80fe6ec78acb72"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "之前检索未找到正式员工出差交通票报销规则，需更换关键词继续查找交通费相关制度",
+        "arguments": {
+          "query": "差旅交通费 出差交通报销标准 正式员工",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.2046,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": "第一次检索结果被截断，需要更精确检索是否存在专门的差旅交通费报销制度以回答350元交通票问题"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "出差交通费报销 火车票 差旅交通标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "EXP-B",
+          "EXP-A",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "finish",
+      "decision_basis": "第一次检索结果被截断，需要更精确检索是否存在专门的差旅交通费报销制度以回答350元交通票问题",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351079311718d6e3628ce906dcdb201e7d3c05ff322ab5a7",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 60,
+          "prompt_tokens": 5337,
+          "total_tokens": 5397,
+          "prompt_tokens_details": {
+            "cached_tokens": 3384
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d8d55ab9aaff20c0a5ed969a50e6477944e4c4b0563f85613a37cbf1b11c1b07",
+        "response_content_sha256": "b88b04df735db4e2b8264f69fa0caae31e3baca6ef1061237c9a6f2bbb074f58"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "第一次检索结果被截断，需要更精确检索是否存在专门的差旅交通费报销制度以回答350元交通票问题",
+        "arguments": {
+          "query": "出差交通费报销 火车票 差旅交通标准",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.6089,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已确认住宿标准，交通票报销规则未检索到相关制度"
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已确认住宿标准，交通票报销规则未检索到相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510796749f3532ba38fee9d5928656c2c92d4e52a5be944",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 111,
+          "prompt_tokens": 5884,
+          "total_tokens": 5995,
+          "prompt_tokens_details": {
+            "cached_tokens": 4408
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "af816ae9566fe6f5297785fffc8fec3fe03c2efed5ccbfdc7d02ac9e76bc24a4",
+        "response_content_sha256": "cf677ce68b4409946e1ff1199b2a3581c811ef6e099487d722d3319f482ff371"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已确认住宿标准，交通票报销规则未检索到相关制度",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            }
+          ],
+          "missing_info": [
+            "正式员工出差交通票（350元车票）的报销标准及规则，现有资料没有明确说明"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M18",
+  "evaluation_turn": 2
+}

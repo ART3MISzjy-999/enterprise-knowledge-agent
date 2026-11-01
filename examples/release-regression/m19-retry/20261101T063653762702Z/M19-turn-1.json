@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "run_id": "2ace0d3d6d3746da86f1d86b16fbedc6",
+  "recorded_at": "2026-11-01T06:37:14.468547+00:00",
+  "mode": "live",
+  "input": {
+    "question": "客户材料只放公司许可系统可以理解为不许放到个人云盘么？这是否也代表用私人的电脑登录看一眼都违规？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "SECURITY",
+        "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+        "version_date": "2026-01-15",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "现有资料没有明确说明使用私人电脑登录查看客户资料是否违规。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。\n现有资料尚不能确认的部分：\n- 现有资料没有明确说明使用私人电脑登录查看客户资料是否违规。",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户材料存放 个人云盘 私人电脑 访问规定",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "LEAVE-IN"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "read_document",
+      "decision_basis": "查找客户材料存储与访问限制的相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793515014433e475229d5cee955ec639fde26adb617b367628",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 2396,
+          "total_tokens": 2442,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4ed5a38059724f9ad6b4cca94d974f4e7e4e18d39fecc3d165ff995246b7b7d6",
+        "response_content_sha256": "fea3040c72e876b50c58bb6c99df53aaa4dff5f096802056c1f45ded608d3349"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找客户材料存储与访问限制的相关制度",
+        "arguments": {
+          "query": "客户材料存放 个人云盘 私人电脑 访问规定",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.3171,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要读取客户资料保管规范全文，确认是否涉及私人电脑访问客户资料的规定。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "SECURITY"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "SECURITY",
+        "characters": 37
+      },
+      "next_action": "finish",
+      "decision_basis": "需要读取客户资料保管规范全文，确认是否涉及私人电脑访问客户资料的规定。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935150202644de950134829ff25bce119eef8760b74e37f54",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 47,
+          "prompt_tokens": 2698,
+          "total_tokens": 2745,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "ec980a36c6334898776658c53a060c54dbff6bbed03542b161011b432a2a26f0",
+        "response_content_sha256": "a155679da2305df1f160a74243710a8edd407e6e335d1da2c491402f003dbbe2"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "需要读取客户资料保管规范全文，确认是否涉及私人电脑访问客户资料的规定。",
+        "arguments": {
+          "doc_id": "SECURITY"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "SECURITY",
+          "title": "客户资料保管规范",
+          "version_date": "2026-01-15",
+          "scope": "全体员工",
+          "policy_key": "customer_data",
+          "supersedes": [],
+          "content": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "现有资料明确了存储限制，但未涉及私人设备访问查看的规定。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "现有资料明确了存储限制，但未涉及私人设备访问查看的规定。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793515027508e9364cfcb645e8222cc1f22dec5fb736d585ed",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 94,
+          "prompt_tokens": 2825,
+          "total_tokens": 2919,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4bfab005934b90d7d69ff40d9592668626789a68a3b4adb1cfd44b8460155323",
+        "response_content_sha256": "ee2087ab2fa1eabcf5c575a1d3c880883368617729e17c88501882795585f2ce"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "现有资料明确了存储限制，但未涉及私人设备访问查看的规定。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "SECURITY",
+              "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+            }
+          ],
+          "missing_info": [
+            "现有资料没有明确说明使用私人电脑登录查看客户资料是否违规。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

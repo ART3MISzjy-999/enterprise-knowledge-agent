@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "run_id": "c2cd64bb27f647ac8f518119013a9902",
+  "recorded_at": "2026-11-01T03:34:29.092167+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我想知道明天最早一班去北京的飞机是几点钟？？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "需要实时航班查询工具或外部航班时刻表数据",
+      "需要出发地机场、目的地北京的具体机场及出行日期才能查询最早航班"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。\n尚待确认：\n- 需要实时航班查询工具或外部航班时刻表数据\n- 需要出发地机场、目的地北京的具体机场及出行日期才能查询最早航班"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "search_documents",
+      "decision_basis": "实时航班查询超出本地资料能力",
+      "validation_errors": [
+        "insufficient_requires_search_attempt"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935040549811f68012d5e32197dcd13836e1ef8c154924fb3",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 1877,
+          "total_tokens": 1951,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "ebe25f072b1ca5f877409ba1578c4ede4b351c7f462f13bcb47fe310e6e48e1c",
+        "response_content_sha256": "0f0a22b1804e4541782ff519b62f40d3c61239b7fe997d060055a3116236b1b8"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "实时航班查询超出本地资料能力",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "缺少出发地机场或城市",
+            "缺少明天的具体日期",
+            "缺少可查询实时航班时刻表或订票系统的外部工具，当前只能查询本地企业制度或合成产品资料"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": "先检索企业本地资料是否含航班信息"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "明天去北京的最早航班时间 航班时刻表",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "search_documents",
+      "decision_basis": "先检索企业本地资料是否含航班信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793504058217274564af00b8ed8c9fdfc012f2496079ad16ab",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 42,
+          "prompt_tokens": 1885,
+          "total_tokens": 1927,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "419ad752464456e9b4b9fcf5c2cbbbeba9f07f47034aaeb0d227a343c024aaa0",
+        "response_content_sha256": "37c9e874cd775859d26876a66565bf6b092b9c9bc134810a8f5a09a3d982fdb0"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "明天去北京的最早航班时间 航班时刻表",
+          "top_k": 5
+        },
+        "reason": "先检索企业本地资料是否含航班信息"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "航班检索无结果，再确认本地资料是否含差旅订票或航班信息"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "飞机票 航班查询 北京 出差订票 出行安排",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "finish",
+      "decision_basis": "航班检索无结果，再确认本地资料是否含差旅订票或航班信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179350406132831c26a7cf9ea611aa30972127acb8017cb6fef",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 1955,
+          "total_tokens": 2007,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "bf68112ca2a98838ebce1ddf4b3272655bda88d8b3995f643dabc1acff454166",
+        "response_content_sha256": "8363cc94e4de8be61774eaacab926bcb1d62e8fb0f6a66a6325f4fe591c96ee1"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "航班检索无结果，再确认本地资料是否含差旅订票或航班信息",
+        "arguments": {
+          "query": "飞机票 航班查询 北京 出差订票 出行安排",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 1.6976,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "企业资料无航班信息，且需实时外部航班数据"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "企业资料无航班信息，且需实时外部航班数据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793504065119314cbdff50da45319a607e6bbd0e7cd839e772",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 71,
+          "prompt_tokens": 2143,
+          "total_tokens": 2214,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a95cb78eb5e65327f9734025d9dc35224e9bc74286668d2890b7f436a928faf0",
+        "response_content_sha256": "3e4e28d55d755f6fb24299b2feacee5b3b7ec8a78ca3a61c2a89cd71e9a27291"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "企业资料无航班信息，且需实时外部航班数据",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "需要实时航班查询工具或外部航班时刻表数据",
+            "需要出发地机场、目的地北京的具体机场及出行日期才能查询最早航班"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

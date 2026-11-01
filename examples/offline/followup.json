@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "run_id": "a40e739ec8d94f41a6c4b0632d4eee55",
+  "recorded_at": "2026-11-01T02:34:55.637688+00:00",
+  "mode": "offline_mock",
+  "input": {
+    "question": "那实习生呢？",
+    "history": [
+      {
+        "role": "user",
+        "content": "正式员工每年有多少天带薪年假？"
+      },
+      {
+        "role": "assistant",
+        "content": "正式员工每个完整服务年度享有12天带薪年假。"
+      }
+    ]
+  },
+  "model_response_count": 0,
+  "evidence_kind": "offline_script_only",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "answered",
+    "citations": [
+      {
+        "doc_id": "LEAVE-IN",
+        "quote": "实习生不适用正式员工的12天带薪年假制度。",
+        "version_date": "2026-02-01",
+        "scope": "实习生",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [],
+    "question": "",
+    "answer": "依据已获取的适用资料：\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "offline_mock",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习生 年假",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "LEAVE-FT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "离线脚本：检索资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "实习生 年假",
+          "top_k": 5
+        },
+        "reason": "离线脚本：检索资料"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 7.5732,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 2.1802,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "离线脚本：提交预设结果供流程验证"
+    },
+    {
+      "step": 2,
+      "source": "offline_mock",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:answered",
+      "decision_basis": "离线脚本：提交预设结果供流程验证",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "离线脚本：提交预设结果供流程验证",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "LEAVE-IN",
+              "quote": "实习生不适用正式员工的12天带薪年假制度。"
+            }
+          ],
+          "missing_info": [],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "followup",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

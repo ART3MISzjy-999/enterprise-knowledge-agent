@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "run_id": "c68949be28b747119f9f83401c871813",
+  "recorded_at": "2026-11-01T01:53:02.275576+00:00",
+  "mode": "live",
+  "input": {
+    "question": "员工报销应在费用发生后多少天内提交？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "000feac888be63067446e53971e104ec22644ad7ce26aacee13ee22b9daaa287",
+  "result": {
+    "status": "answered",
+    "citations": [
+      {
+        "doc_id": "EXP-A",
+        "quote": "员工应在费用发生后30天内提交报销申请。",
+        "version_date": "2026-01-01",
+        "scope": "全体员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [],
+    "question": "",
+    "answer": "依据已获取的适用资料：\n[EXP-A] 员工应在费用发生后30天内提交报销申请。"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "员工报销费用发生后提交的期限",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-A",
+          "LEAVE-FT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "finish",
+      "decision_basis": "查找关于员工报销提交期限的相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497976056e9cb5252029dbbd5be23154381b1012b7a1cd7",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 1543,
+          "total_tokens": 1583,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "ea80335fb87686641a9e1d2eb66b1e4b3abce65f62a106c1da0893912cd55054",
+        "response_content_sha256": "6378cd83d98fec6e6e70badb75cbe567c47e4a4cdab412597ce9ad8a7fe8ffda"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "员工报销费用发生后提交的期限",
+          "top_k": 5
+        },
+        "reason": "查找关于员工报销提交期限的相关制度"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 11.5397,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 1.2161,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 1.11,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已找到员工报销提交期限的相关规定"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:answered",
+      "decision_basis": "已找到员工报销提交期限的相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934979799981f1c2502e2c4024a5d577df8bf366bf3c4cc35",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 62,
+          "prompt_tokens": 1938,
+          "total_tokens": 2000,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a7472176e34c4273745ea62bc3faab5d4f960e3e1ce0c27796e4f412b28c806f",
+        "response_content_sha256": "3a6115099bb35286496463f105e4e4ea4bca43377cf60c9d9116121dde7405db"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已找到员工报销提交期限的相关规定",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。"
+            }
+          ],
+          "missing_info": [],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "evidence_single",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [
+      "EXP-B"
+    ],
+    "synthetic_data": true
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "run_id": "043623ff0c644992ac24a2557d747af7",
+  "recorded_at": "2026-11-01T05:25:43.771050+00:00",
+  "mode": "live",
+  "input": {
+    "question": "补充一下，我已转成正式员工了；刚才年休和绩效奖金的两个问题都想了解。",
+    "history": [
+      {
+        "role": "user",
+        "content": "我在这里干满一年，年休能放几天还领工资？年度绩效奖会不会跟着少？"
+      },
+      {
+        "role": "assistant",
+        "content": "需要补充适用信息后再确认。\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。\n尚待确认：\n- 用户的具体用工身份（正式员工或实习生等）尚未明确，无法确定适用的年假天数与工资规则。\n- 现有资料未说明休年假是否会影响年度绩效奖。\n请问你目前的用工身份是正式员工还是实习生呢？"
+      }
+    ]
+  },
+  "model_response_count": 5,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "现有资料未说明休年假是否会影响年度绩效奖。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。\n现有资料尚不能确认的部分：\n- 现有资料未说明休年假是否会影响年度绩效奖。",
+    "coverage": "partial"
+  },
+  "tool_calls": 4,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 带薪年假 天数 年度绩效奖 影响",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户已确认为正式员工，需分别检索正式员工带薪年假天数规则，以及年假与年度绩效奖金的关联规则。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351072032356eb7e2f0e6e1b62566cfff6b8b93da84a53b4",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 62,
+          "prompt_tokens": 2583,
+          "total_tokens": 2645,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "98ffdf54e9b513bf47f9c6e649e8b2bd63a081b5d493748c4ed498b321a588aa",
+        "response_content_sha256": "370aed4e5c1d9208af367d662ac86a854807e12c0674af923787b5b910fb38ea"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户已确认为正式员工，需分别检索正式员工带薪年假天数规则，以及年假与年度绩效奖金的关联规则。",
+        "arguments": {
+          "query": "正式员工 带薪年假 天数 年度绩效奖 影响",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 9.9179,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 5.7205,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "用户已明确为正式员工，年假天数已有依据，现需检索休年假是否影响年度绩效奖的相关制度。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 休年假 年度绩效奖 影响",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户已明确为正式员工，年假天数已有依据，现需检索休年假是否影响年度绩效奖的相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510724223e475229d5cee955ec639fde26adb617be2292a",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 59,
+          "prompt_tokens": 3011,
+          "total_tokens": 3070,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c3961e3869adde68756c093580a808aa89cf04b5babc3e3b3fca9e0892fe2512",
+        "response_content_sha256": "3ffb6931a617035500f4ce3b33296f6b704288e2dbd6f4098b4bd85ea7ca801e"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户已明确为正式员工，年假天数已有依据，现需检索休年假是否影响年度绩效奖的相关制度。",
+        "arguments": {
+          "query": "正式员工 休年假 年度绩效奖 影响",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.2565,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.8634,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "目前检索结果未涉及休年假对年度绩效奖的影响，需要补充检索绩效奖金相关制度。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年度绩效奖 休年假 影响 正式员工",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "search_documents",
+      "decision_basis": "目前检索结果未涉及休年假对年度绩效奖的影响，需要补充检索绩效奖金相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510729107d7d07de4d57a30da771768fd8ed668ae9d5751",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 55,
+          "prompt_tokens": 3437,
+          "total_tokens": 3492,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "bc1d9ab64a5dd96740dd7c4ef962a1903fb3d08f2cc36b7064f113d96fc9c9d5",
+        "response_content_sha256": "ed6405798919f668deec656a715488c6e7f28e5a34665c96d5f148882bdcfe4a"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "目前检索结果未涉及休年假对年度绩效奖的影响，需要补充检索绩效奖金相关制度。",
+        "arguments": {
+          "query": "年度绩效奖 休年假 影响 正式员工",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.2565,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.8634,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "此前检索未找到绩效奖相关制度，换用更宽泛的关键词查找年度绩效奖规则"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年度绩效奖 发放 考核 规定",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "finish",
+      "decision_basis": "此前检索未找到绩效奖相关制度，换用更宽泛的关键词查找年度绩效奖规则",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510734565550bfab5f71280c58de086216775be5d3d9b99",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 60,
+          "prompt_tokens": 3863,
+          "total_tokens": 3923,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "a4d68392506b37ecc0ff0f003ec26a874eaf91c6b86f59493c6852cb49920721",
+        "response_content_sha256": "2e273799e9655ec45f0d3ca36381ff7ed278ce3c9f55ea9a283716fd3c31d664"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "此前检索未找到绩效奖相关制度，换用更宽泛的关键词查找年度绩效奖规则",
+        "arguments": {
+          "query": "年度绩效奖 发放 考核 规定",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8614,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "年假天数有明确制度依据；年度绩效奖影响经多轮检索无相关制度说明。"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "年假天数有明确制度依据；年度绩效奖影响经多轮检索无相关制度说明。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351073888981e6057fef4764f94d8c67e4fd921feb460918",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 100,
+          "prompt_tokens": 4045,
+          "total_tokens": 4145,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c12c3b1f262de1d2912bb69d59e564a53ff793bb26b5faf0d96b717b5dabd2ef",
+        "response_content_sha256": "9282656d202db9c16289db541df6e1ceee539a886b3d1f3962502bfd7cc00dae"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "年假天数有明确制度依据；年度绩效奖影响经多轮检索无相关制度说明。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+            }
+          ],
+          "missing_info": [
+            "现有资料未说明休年假是否会影响年度绩效奖。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M17",
+  "evaluation_turn": 2
+}

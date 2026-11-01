@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "run_id": "ba8b46bae310407bb4c716cc44957ca8",
+  "recorded_at": "2026-11-01T06:32:33.852090+00:00",
+  "mode": "live",
+  "input": {
+    "question": "客户信息放在公司认可的应用里才合规，对吧？那么所有自用手机、电脑都连打开查看也绝对不允许吗？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "SECURITY",
+        "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+        "version_date": "2026-01-15",
+        "scope": "全体员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "现有资料没有明确说明是否绝对不允许在自用手机、电脑等个人设备上打开查看客户信息。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。\n现有资料尚不能确认的部分：\n- 现有资料没有明确说明是否绝对不允许在自用手机、电脑等个人设备上打开查看客户信息。",
+    "coverage": "partial"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户信息 合规 存储 应用 个人设备 手机 电脑 禁止",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "LEAVE-IN"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "查找客户信息存储和使用的合规要求，以及个人设备使用限制相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514745320b5bbc295b386b4b249d67905c97ffef8faa153",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 56,
+          "prompt_tokens": 2394,
+          "total_tokens": 2450,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "cac773bb8e1e75584b5c60620224a062e13152376be01acb1f4aadfbe38ca976",
+        "response_content_sha256": "c83aa282ee1aad29d6421d39cab50b56d13660581a43b189c01e0fb12d1333f5"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找客户信息存储和使用的合规要求，以及个人设备使用限制相关制度",
+        "arguments": {
+          "query": "客户信息 合规 存储 应用 个人设备 手机 电脑 禁止",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.3171,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "现有资料明确了客户资料的存储要求和个人网盘限制，但未涉及个人设备查看的规定。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "现有资料明确了客户资料的存储要求和个人网盘限制，但未涉及个人设备查看的规定。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935147498719f744ac2d426a90baacb0f446edf7bf67b3a5a",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 108,
+          "prompt_tokens": 2700,
+          "total_tokens": 2808,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4352d4cccea1aa040bd6a996de214b40fe26f7de0fe77f2d431ccd7ed1f99429",
+        "response_content_sha256": "c03016e40210050fc77977d7852a847194d6da0745eb3e9f0a1f7526ec28e844"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "现有资料明确了客户资料的存储要求和个人网盘限制，但未涉及个人设备查看的规定。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "SECURITY",
+              "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+            }
+          ],
+          "missing_info": [
+            "现有资料没有明确说明是否绝对不允许在自用手机、电脑等个人设备上打开查看客户信息。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M13",
+  "evaluation_turn": 1
+}

@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "run_id": "80f145292da9493bbe21d15ce681920d",
+  "recorded_at": "2026-11-01T01:46:27.810156+00:00",
+  "mode": "live",
+  "input": {
+    "question": "员工报销应在费用发生后多少天内提交？",
+    "history": []
+  },
+  "model_response_count": 6,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "incomplete",
+    "answer": "本次查询未完成，不能确认结论。",
+    "citations": [],
+    "missing_info": [
+      "model_connection_failed"
+    ],
+    "question": ""
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "员工报销费用发生后提交期限",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-A",
+          "EXP-B",
+          "LEAVE-FT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "model_error",
+      "decision_basis": "查找员工报销提交时限的相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497506899fe72bfc0272752ca5305ae414c6616a37ec598",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 782,
+          "total_tokens": 818,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "df262457177641d73eb399de883c391e2a7535f1b19e8b2d2be6248b97e92243",
+        "response_content_sha256": "4aa6b4b01ac93f06e3dc1704f78be338b1d9cccd03a16489468e5a91725b5a44"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "员工报销费用发生后提交期限",
+          "top_k": 5
+        },
+        "reason": "查找员工报销提交时限的相关规定"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 8.9448,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 8.6169,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 0.9811,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 0.8948,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "read_document",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934975118365bf05a230eba2dfb3c75629cf63151ec9882a3",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 25,
+          "prompt_tokens": 1284,
+          "total_tokens": 1309,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "5e4411cd6d0d57f95c1c5d5abf502b39c2e674b4f5061d9ea2e3f8fa45906c43",
+        "response_content_sha256": "8f3e3ef27a6e65a10766f5c18225c59ef08c8f1ede202e95ec0d1e979759390f"
+      },
+      "next_decision_basis": "读取EXP-A完整内容确认报销期限及优先级规则"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "读取EXP-A完整内容确认报销期限及优先级规则",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497515476bed15afc0092f915eb01246432c6f7b6809e02",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 29,
+          "prompt_tokens": 1308,
+          "total_tokens": 1337,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "6d03c63f2d5d2442aad5b6f285b5c2dcc3ea4d199903520e971b5157c192a6ac",
+        "response_content_sha256": "31d4856da8dcf0d006b7fb9ef2131254f473c660565b0f2fa915ecf77c48a538"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "EXP-A"
+        },
+        "reason": "读取EXP-A完整内容确认报销期限及优先级规则"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+        }
+      },
+      "next_decision_basis": "两个文件报销提交期限不同，需读取EXP-B原文确认内容"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-B"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-B",
+        "characters": 38
+      },
+      "next_action": "model_error",
+      "decision_basis": "两个文件报销提交期限不同，需读取EXP-B原文确认内容",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497519733352115125431e5549369d4d527ff786e3651ba",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 1432,
+          "total_tokens": 1464,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d244df020f64878af9d5e6ac00816e75eeee93e47692695e6f0bc646dc94f759",
+        "response_content_sha256": "7bfa5a3c8a74e1d74ff2d79ec2be68b964fc0a6520a3f68aad1a090c6b9ec5d5"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "EXP-B"
+        },
+        "reason": "两个文件报销提交期限不同，需读取EXP-B原文确认内容"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-B",
+          "title": "费用报销操作 FAQ",
+          "version_date": "2026-03-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179349752334397147f4f1a42e833cb78104cc60692b0c8a9fd",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 438,
+          "prompt_tokens": 1555,
+          "total_tokens": 1993,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e5bde8fcfe83baf0b1d969eceff7fe461e1a4fb6a7cd69deda35072fac622674",
+        "response_content_sha256": "98d2fff954b3b74375b3428be02ad87c110b9379ccc8d7bb357da41f42126c1d"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179349753595738b4ca612c111379c83d27b4a8b1bb37dcda1d",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 166,
+          "prompt_tokens": 1580,
+          "total_tokens": 1746,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "06f92c953f4fc4aaa447482ff3b6c8eb70ebfb0691dcc43d6019213fcee04af3",
+        "response_content_sha256": "1b193ec03884654be231ac804adf2665a0dfed61971fd9ff929c54fe6cf5de68"
+      },
+      "next_decision_basis": "model_connection_failed"
+    },
+    {
+      "step": 7,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "model_connection_failed",
+      "validation_errors": [],
+      "model_metadata": {},
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "conflict",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "run_id": "3baf525403c648029e6e27d684e94644",
+  "recorded_at": "2026-11-01T04:38:31.762868+00:00",
+  "mode": "live",
+  "input": {
+    "question": "公司火星殖民补贴每人多少元？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "现有企业资料未规定公司火星殖民补贴的每人金额，无法确认是否存在该补贴及具体标准。"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。\n尚待确认：\n- 现有企业资料未规定公司火星殖民补贴的每人金额，无法确认是否存在该补贴及具体标准。",
+    "coverage": "none"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民补贴 每人 补贴标准 金额",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找火星殖民补贴标准",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179350789782119937eadc6258ad89b117be868ee33edb49e45",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 38,
+          "prompt_tokens": 2373,
+          "total_tokens": 2411,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "5cedcc6ebd05648c01d232726334927cde6721e9c8b4435094d564464eb07202",
+        "response_content_sha256": "5f38b3f67f499aaddade7ccc871b743709d9993c162f82445d313ea77820dbe5"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星殖民补贴 每人 补贴标准 金额",
+          "top_k": 5
+        },
+        "reason": "查找火星殖民补贴标准"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "首次检索不相关，换关键词继续查找"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星 殖民 补贴 标准 元",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "首次检索不相关，换关键词继续查找",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793507901529e9364cfcb645e8222cc1f22dec5fb736ddc992",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 41,
+          "prompt_tokens": 2687,
+          "total_tokens": 2728,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "fc5cb3c8e16646bd68771814b72eba77987a3b59049a8b25345651394a065dfa",
+        "response_content_sha256": "133c6a339879e0a4ca2403b85591a0c820d89850e667ce516800052d68958024"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星 殖民 补贴 标准 元",
+          "top_k": 5
+        },
+        "reason": "首次检索不相关，换关键词继续查找"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "两次检索均未找到火星殖民补贴依据"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "两次检索均未找到火星殖民补贴依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793507906080773dd14f0c42e8f8f111dbca897f71d360dc9b",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 3000,
+          "total_tokens": 3063,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "444640fc9e028740ae3893baf982b711045ce478066aed81233fb212e61798ee",
+        "response_content_sha256": "4dde78bc976680098d6fc249a13005b67254fb7aacaa58011bac4b35c62c865d"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "两次检索均未找到火星殖民补贴依据",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "现有企业资料未规定公司火星殖民补贴的每人金额，无法确认是否存在该补贴及具体标准。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "insufficient",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

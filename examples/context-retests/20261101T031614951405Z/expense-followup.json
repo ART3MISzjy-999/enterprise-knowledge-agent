@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "run_id": "023c452ad485463b88af138fb72e0dfc",
+  "recorded_at": "2026-11-01T03:16:50.158716+00:00",
+  "mode": "live",
+  "input": {
+    "question": "半个月的那份",
+    "history": [
+      {
+        "role": "user",
+        "content": "我是实习生，我想要报销我昨天出差的高铁费用350元，还有宾馆费用409元，请问要怎么报销"
+      },
+      {
+        "role": "assistant",
+        "content": "资料存在冲突，尚不能确定适用结论；版本日期本身不足以确定优先级。\n[EXP-A] 员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n[EXP-B] 员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n请确认你所在部门或实习协议适用哪一份报销制度（15天期限还是30天期限），并提供实习生差旅报销制度或审批入口，以便确定具体怎么报销？"
+      },
+      {
+        "role": "user",
+        "content": "说错了，我是正式员工"
+      },
+      {
+        "role": "assistant",
+        "content": "资料存在冲突，尚不能确定适用结论；版本日期本身不足以确定优先级。\n[TRAVEL-HOTEL] 正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n[EXP-A] 员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n[EXP-B] 员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n你所在部门或费用制度要求适用15天还是30天的报销提交期限？另请提供差旅报销入口或高铁费报销规则，以便确认完整办理方式？"
+      }
+    ]
+  },
+  "model_response_count": 6,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "EXP-B",
+        "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+        "version_date": "2026-03-01",
+        "scope": "全体员工",
+        "source": "search_documents"
+      },
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "高铁费350元是否可报销及其标准或凭证要求",
+      "报销申请入口、审批流程及需上传的发票或车票等凭证要求",
+      "宾馆费用409元是否为一晚、出差地点是否在中国大陆，以及是否已取得合规住宿凭证",
+      "住宿是否需要出差审批或其他事前审批证明"
+    ],
+    "question": "",
+    "answer": "已找到部分依据，但现有资料不足以完整回答：\n[EXP-B] 员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n[TRAVEL-HOTEL] 正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n尚待确认：\n- 高铁费350元是否可报销及其标准或凭证要求\n- 报销申请入口、审批流程及需上传的发票或车票等凭证要求\n- 宾馆费用409元是否为一晚、出差地点是否在中国大陆，以及是否已取得合规住宿凭证\n- 住宿是否需要出差审批或其他事前审批证明"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工差旅报销 高铁费 火车票 住宿费 报销流程 凭证 审批 入口 15天",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "EXP-B",
+          "LEAVE-FT",
+          "EXP-A",
+          "LEAVE-IN"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户选择15天制度，继续查证高铁和住宿报销规则",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793502976381807aee62071c6276565fb8410c8c51794ed442",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 62,
+          "prompt_tokens": 2105,
+          "total_tokens": 2167,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "9a0462ed4d357d43bda379d3b27ada41475886d69eeff9df7bf3bf94c122308b",
+        "response_content_sha256": "8793bd31d8f9e381a4c68ca63f61658013933136c31177e759e5c6feca6254ef"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工差旅报销 高铁费 火车票 住宿费 报销流程 凭证 审批 入口 15天",
+          "top_k": 5
+        },
+        "reason": "用户选择15天制度，继续查证高铁和住宿报销规则"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 8.4531,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 3.5381,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 1.7063,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": "已确定15天期限，仍需查证高铁费及报销流程凭证"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 出差 高铁 火车票 费用报销 申请流程 凭证 审批 报销入口",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-B",
+          "EXP-A",
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 5
+      },
+      "next_action": "search_documents",
+      "decision_basis": "已确定15天期限，仍需查证高铁费及报销流程凭证",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935029808729436a70d8fd44afb73ab39bbb6df35ba7cadf2",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 60,
+          "prompt_tokens": 2737,
+          "total_tokens": 2797,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "06c032449bd82e56fafb4ee81147444cfc8274ddb81fd9eb2112736984b22528",
+        "response_content_sha256": "15f643bd39884c6140fef8a0526db707d56802ddf5cdde119131a143cd5c66d3"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工 出差 高铁 火车票 费用报销 申请流程 凭证 审批 报销入口",
+          "top_k": 5
+        },
+        "reason": "已确定15天期限，仍需查证高铁费及报销流程凭证"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 5.6628,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 5.6172,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 5.1881,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 3.9351,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 2.3325,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 5,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已确认适用15天期限，继续查找高铁及住宿报销流程凭证"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 差旅报销 高铁票 报销流程 需要什么凭证 报销系统 提交申请 住宿费发票",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "LEAVE-FT",
+          "EXP-A",
+          "EXP-B",
+          "LEAVE-IN"
+        ],
+        "total_hits": 6
+      },
+      "next_action": "invalid_decision",
+      "decision_basis": "已确认适用15天期限，继续查找高铁及住宿报销流程凭证",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935029840138df7a849f41ce9ab0b158347df2accb1a0e776",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 3366,
+          "total_tokens": 3429,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d01eaae189c28688e29afef2786bee46902eb3db776521f0ec26dd66d835c554",
+        "response_content_sha256": "8f6e7e486fa3493e35dd9d41e981c8a81f42840777b5cf96a77d24767cffd441"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工 差旅报销 高铁票 报销流程 需要什么凭证 报销系统 提交申请 住宿费发票",
+          "top_k": 5
+        },
+        "reason": "已确认适用15天期限，继续查找高铁及住宿报销流程凭证"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 8.4531,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 4.9162,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 4.2865,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 3.9127,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 2.3325,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 6,
+          "truncated": true
+        }
+      },
+      "next_decision_basis": ""
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "invalid_decision",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "",
+      "validation_errors": [
+        "tool decision fields must be action, arguments, reason"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793502992284807aee62071c6276565fb8410c8c51792869c7",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 57,
+          "prompt_tokens": 3998,
+          "total_tokens": 4055,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "74339ea96a2232dd6e006c47f642e9940750ca415eb12a2d656ee82784166411",
+        "response_content_sha256": "95cc14a5c9a76672445d547245aaad1d77923188fbbed79e57f7e7f9e4f9fdae"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "finish",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935029957474d75fdb53d3f925b15dbd3d601375baa94852a",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 243,
+          "prompt_tokens": 4009,
+          "total_tokens": 4252,
+          "prompt_tokens_details": {
+            "cached_tokens": 2872
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8a9aae8cfceefa09b2103f528ae29d51983636b9988925489d98be91d5c247ed",
+        "response_content_sha256": "810fdae65b66c9c7f963b26d1b651674209a2c6aacc00f8f86b083c2ecfafd4d"
+      },
+      "next_decision_basis": "用户已选择15天期限，但高铁报销和流程仍缺依据"
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "用户已选择15天期限，但高铁报销和流程仍缺依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179350300436442d61436b42c4faf3c1605a49dd3caddce0453",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 190,
+          "prompt_tokens": 4034,
+          "total_tokens": 4224,
+          "prompt_tokens_details": {
+            "cached_tokens": 2872
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "01e89a161191a8a4e221afff32758bac1066fda3f9b373949fabf8d6111975db",
+        "response_content_sha256": "75a39537c02cb025c1a217526235dee0f61cf01cfed153b0a37bec8ae3de10c0"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "用户已选择15天期限，但高铁报销和流程仍缺依据",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            }
+          ],
+          "missing_info": [
+            "高铁费350元是否可报销及其标准或凭证要求",
+            "报销申请入口、审批流程及需上传的发票或车票等凭证要求",
+            "宾馆费用409元是否为一晚、出差地点是否在中国大陆，以及是否已取得合规住宿凭证",
+            "住宿是否需要出差审批或其他事前审批证明"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

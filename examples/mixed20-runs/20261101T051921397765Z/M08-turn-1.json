@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "run_id": "d903ab554195454898bdb628b3752483",
+  "recorded_at": "2026-11-01T05:22:25.439093+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是正式员工，这次去南京的旅馆一夜要620块，按制度订之前该找谁确认？明早最早一趟去南京的高铁几点开？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "明早最早一趟去南京的高铁发车时刻属于外部实时交通数据，现有企业制度资料中没有相关查询能力和数据。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[TRAVEL-HOTEL] 正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n现有资料尚不能确认的部分：\n- 明早最早一趟去南京的高铁发车时刻属于外部实时交通数据，现有企业制度资料中没有相关查询能力和数据。",
+    "coverage": "partial"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "南京 住宿 超额 确认 审批人 差旅 标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "用户咨询两部分问题：一是住宿超标准时预订前的确认审批人，二是南京高铁最早班次。高铁属于外部实时数据，本地工具无此能力。先检索企业差旅住宿标准及超额确认审批制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510512636b75b42a52114d75a63a7057f0ece04dd9850d1",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 87,
+          "prompt_tokens": 2427,
+          "total_tokens": 2514,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c5373312e579e773495481c22bb692a92b6b522d3969c0661c380e03e4c6bd67",
+        "response_content_sha256": "f0d2f3e1b2ef7d9f427b64913996a84aaeecf35b127d9e3625cf1cc6a8dc0ac2"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户咨询两部分问题：一是住宿超标准时预订前的确认审批人，二是南京高铁最早班次。高铁属于外部实时数据，本地工具无此能力。先检索企业差旅住宿标准及超额确认审批制度。",
+        "arguments": {
+          "query": "南京 住宿 超额 确认 审批人 差旅 标准",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.0711,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "住宿超额确认有制度依据；高铁时刻属外部实时数据，现有企业制度工具无法提供。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "住宿超额确认有制度依据；高铁时刻属外部实时数据，现有企业制度工具无法提供。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510518023764cb85af6e95477278739ec97beec4ba49fa0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 123,
+          "prompt_tokens": 2746,
+          "total_tokens": 2869,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "db171bec09fb900e4fcfc1961c7ca0b1a416173f00339876e3bb7fe9d6b7dcfe",
+        "response_content_sha256": "d65702eaa89fc90b823fa3e1f52a1eab0ee0043de4751592b4c6e66772e9cfa5"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "住宿超额确认有制度依据；高铁时刻属外部实时数据，现有企业制度工具无法提供。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            }
+          ],
+          "missing_info": [
+            "明早最早一趟去南京的高铁发车时刻属于外部实时交通数据，现有企业制度资料中没有相关查询能力和数据。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M08",
+  "evaluation_turn": 1
+}

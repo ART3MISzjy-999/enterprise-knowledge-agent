@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "run_id": "e7d74c97342e4c19ad34f4be9d170128",
+  "recorded_at": "2026-11-01T01:50:45.316152+00:00",
+  "mode": "live",
+  "input": {
+    "question": "员工报销应在费用发生后多少天内提交？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "000feac888be63067446e53971e104ec22644ad7ce26aacee13ee22b9daaa287",
+  "result": {
+    "status": "incomplete",
+    "answer": "本次查询未完成，不能确认结论。",
+    "citations": [],
+    "missing_info": [
+      "model_connection_failed"
+    ],
+    "question": ""
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "员工报销费用发生后提交期限",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-A",
+          "LEAVE-FT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "model_error",
+      "decision_basis": "查找员工报销提交期限的相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497780648911e8ed2ab1522906e8f4201ada88c1cd0f831",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 782,
+          "total_tokens": 818,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "df262457177641d73eb399de883c391e2a7535f1b19e8b2d2be6248b97e92243",
+        "response_content_sha256": "8770b93e9d4188dd59b5aaaed1ef46090acc38ba05a8cd9332eb9994a96ea8a0"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "员工报销费用发生后提交期限",
+          "top_k": 5
+        },
+        "reason": "查找员工报销提交期限的相关规定"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "score": 11.5397,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 1.2161,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 1.11,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "read_document",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179349778286116daf9d61fcfa3cb5e99a3c6f3936179cb27fe",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 253,
+          "prompt_tokens": 1176,
+          "total_tokens": 1429,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "111e0d29d0e440dedb8db90f4176f6afbd4197dc7e66eba2d5c306424551b97c",
+        "response_content_sha256": "85f43800b957c6f968c9665d0b1040e44496dd5bf617f5424c76e30fd67c1bbb"
+      },
+      "next_decision_basis": "读取报销提交规则的完整内容确认期限要求"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "model_error",
+      "decision_basis": "读取报销提交规则的完整内容确认期限要求",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497790738f08cfc642d91a17e77e639628bf9631fe9b6f5",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 28,
+          "prompt_tokens": 1200,
+          "total_tokens": 1228,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "fbb2515f0ce3cf80a3ea32dd3c546c552bebc8b23a2d6b15707b3b149b5b0af2",
+        "response_content_sha256": "388acefaeb70c1ff403213a4e633f472c3aad71208b3703258c532cc15774131"
+      },
+      "decision": {
+        "action": "read_document",
+        "arguments": {
+          "doc_id": "EXP-A"
+        },
+        "reason": "读取报销提交规则的完整内容确认期限要求"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497793529849871fb1e27dce4ca5f831ffedf1be9cdf82c",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 198,
+          "prompt_tokens": 1324,
+          "total_tokens": 1522,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "6978c4577f9dd46b9e5bf27608c0335bdfaae5eaac8da36976b45b72bbd02c7c",
+        "response_content_sha256": "c5a1fc83eaae86435dd89947abf0eadda9c554399c9b43b3dd00391176c96a7e"
+      },
+      "next_decision_basis": "model_connection_failed"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "model_connection_failed",
+      "validation_errors": [],
+      "model_metadata": {},
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "evidence_single",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [
+      "EXP-B"
+    ],
+    "synthetic_data": true
+  }
+}

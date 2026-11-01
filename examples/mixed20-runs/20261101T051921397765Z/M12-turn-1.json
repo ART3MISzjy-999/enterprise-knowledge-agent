@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "run_id": "73e608a010e8405c9c925574d097a98b",
+  "recorded_at": "2026-11-01T05:23:58.665774+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我用Aurora标准档，把成片存出来的分辨率上限是多少？想升到能出超高清的套餐，每个月要花多少钱？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "PRODUCT-EXPORT",
+        "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+        "version_date": "2026-05-01",
+        "scope": "Aurora标准版",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "现有资料未说明能导出超高清（如4K）的Aurora套餐类型、是否存在此类套餐以及对应的月费/升级价格。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[PRODUCT-EXPORT] Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。\n现有资料尚不能确认的部分：\n- 现有资料未说明能导出超高清（如4K）的Aurora套餐类型、是否存在此类套餐以及对应的月费/升级价格。",
+    "coverage": "partial"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "Aurora 标准档 成片 分辨率 超高清 套餐 价格 月费",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找Aurora标准档成片输出分辨率上限及可输出超高清套餐的月费信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351061853524d2d0d80fc72db53ac7bec89037cf503bab88",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 71,
+          "prompt_tokens": 2398,
+          "total_tokens": 2469,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "5c6b398998fe835128482e83861f29dd4c90be3b046ffc9aff14f05a8a3ae984",
+        "response_content_sha256": "bc2680be6710b95394cfdb4339dada5f5f262452a64606d6e982a82b80d5eb48"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找Aurora标准档成片输出分辨率上限及可输出超高清套餐的月费信息",
+        "arguments": {
+          "query": "Aurora 标准档 成片 分辨率 超高清 套餐 价格 月费",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 8.7251,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "查找Aurora超高清套餐月费及升级价格"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "Aurora 超高清 4K 套餐 价格 月费 升级",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "read_document",
+      "decision_basis": "查找Aurora超高清套餐月费及升级价格",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510623969ca1998c53fd4b023b15de25487e65f32bb3f2e",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 2722,
+          "total_tokens": 2774,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "61938cc53c266e4d40c64b9da120c93bd914de610938fe82faa5adda608e2c07",
+        "response_content_sha256": "7ce970567864e5f35999e3d5ee6a4bcb37e8120c189b014bb5d59422cf180100"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找Aurora超高清套餐月费及升级价格",
+        "arguments": {
+          "query": "Aurora 超高清 4K 套餐 价格 月费 升级",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.9491,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要确认Aurora标准档导出分辨率及是否有超高清套餐价格信息"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "PRODUCT-EXPORT"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "PRODUCT-EXPORT",
+        "characters": 47
+      },
+      "next_action": "finish",
+      "decision_basis": "需要确认Aurora标准档导出分辨率及是否有超高清套餐价格信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935106299435dcdee1d192a1f0abe210e97cc0cd1a4bd5019",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 39,
+          "prompt_tokens": 2922,
+          "total_tokens": 2961,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "2f6e120d936ceb6cfba117d0d1b497e3595ca08033eca47c566c5feb26742b8e",
+        "response_content_sha256": "d56325762f22c3813682b7b2ec74c1261e78df564d85c788ee245ae20636ba8f"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "需要确认Aurora标准档导出分辨率及是否有超高清套餐价格信息",
+        "arguments": {
+          "doc_id": "PRODUCT-EXPORT"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "PRODUCT-EXPORT",
+          "title": "合成产品 Aurora 编辑器导出 FAQ",
+          "version_date": "2026-05-01",
+          "scope": "Aurora标准版",
+          "policy_key": "export_format",
+          "supersedes": [],
+          "content": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "已有Aurora标准版导出分辨率资料，但缺少超高清套餐及月费信息"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已有Aurora标准版导出分辨率资料，但缺少超高清套餐及月费信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510633900c4b4c21807da17f108ce4c4545791d8e62d899",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 120,
+          "prompt_tokens": 3063,
+          "total_tokens": 3183,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "cc9b9c47e9464ec972f74d7c28bd9deda1947fa7db45e85597b216a8ebe6c75f",
+        "response_content_sha256": "a5b9d84ad9938b4485551be6f70899c5186d44b96928f57fbdaab359fb0d87fb"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已有Aurora标准版导出分辨率资料，但缺少超高清套餐及月费信息",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。"
+            }
+          ],
+          "missing_info": [
+            "现有资料未说明能导出超高清（如4K）的Aurora套餐类型、是否存在此类套餐以及对应的月费/升级价格。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M12",
+  "evaluation_turn": 1
+}

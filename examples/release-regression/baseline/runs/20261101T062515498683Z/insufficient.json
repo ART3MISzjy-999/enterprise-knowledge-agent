@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "run_id": "b7daec2580e041d692d160c11a7b0b43",
+  "recorded_at": "2026-11-01T06:26:14.893474+00:00",
+  "mode": "live",
+  "input": {
+    "question": "公司火星殖民补贴每人多少元？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "公司火星殖民补贴的金额标准及相关制度在现有资料中没有记载，无法确认具体金额。"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。\n尚待确认：\n- 公司火星殖民补贴的金额标准及相关制度在现有资料中没有记载，无法确认具体金额。",
+    "coverage": "none"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民补贴 金额",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查询公司是否有火星殖民补贴相关制度及金额",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514356732f08cfc642d91a17e77e639628bf9631f784178",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 38,
+          "prompt_tokens": 2373,
+          "total_tokens": 2411,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "557cd9234114cdbd8aa46674bc4171c358ff51cef14aaa12a9013c71e66fdc30",
+        "response_content_sha256": "8e6f5868e5b278b75a49c0b7e1794dcddbc4afbf9d00f7e1a5abe7b885c7deb0"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查询公司是否有火星殖民补贴相关制度及金额",
+        "arguments": {
+          "query": "火星殖民补贴 金额",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "首次检索无结果，改用更宽泛关键词重试，确认是否存在火星殖民相关补贴制度。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民 补贴",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "finish",
+      "decision_basis": "首次检索无结果，改用更宽泛关键词重试，确认是否存在火星殖民相关补贴制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514363458588cf1f192295a4a72f91ca46784841640acd0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 2438,
+          "total_tokens": 2484,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "649bade6c1509b20000b59697f3153694de0fbb1652ef71792618150df08ed3e",
+        "response_content_sha256": "f8b72ea3ec5ae4b012bb597b2b470fbc41ce8d162e819fdd1e187603ce0dfa37"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "首次检索无结果，改用更宽泛关键词重试，确认是否存在火星殖民相关补贴制度。",
+        "arguments": {
+          "query": "火星殖民 补贴",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "两次检索均未找到与火星殖民补贴相关的制度资料，现有文档中没有该补贴的相关规定。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "两次检索均未找到与火星殖民补贴相关的制度资料，现有文档中没有该补贴的相关规定。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514369855efc00680cc97b448c97df3ed8237441f32813d",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 86,
+          "prompt_tokens": 2502,
+          "total_tokens": 2588,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "756e2eb81937c9d48b9997b6b11190fdd266bb3a09d650528b41494ed3630ce9",
+        "response_content_sha256": "40174329cb3037f01d889395b480f7e12d4c05c6800378490ca14edc1affccc9"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "两次检索均未找到与火星殖民补贴相关的制度资料，现有文档中没有该补贴的相关规定。",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "公司火星殖民补贴的金额标准及相关制度在现有资料中没有记载，无法确认具体金额。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "insufficient",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

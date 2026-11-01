@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "run_id": "1b71b15010f441e5a3a5746aa963cec1",
+  "recorded_at": "2026-11-01T05:20:00.257042+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是正式员工，准备请年休，最晚得提前几个上班日找主管？顺便把内部请假网页地址发给我。",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "年假申请应提前3个工作日提交直属主管。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "现有资料中未提及内部请假网页地址的相关信息"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[LEAVE-FT] 年假申请应提前3个工作日提交直属主管。\n现有资料尚不能确认的部分：\n- 现有资料中未提及内部请假网页地址的相关信息",
+    "coverage": "partial"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年假 提前 上班日 主管 请假 网页 地址",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找年假提前申请天数和内部请假网页地址相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510380167c0506cecb44d3a1cbfe6034fdc2fcfd874b0fe",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 2419,
+          "total_tokens": 2467,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e303c1111f0b14e270bb4de3d07d50eee21f393d1e33777176e21053f84586ef",
+        "response_content_sha256": "10f39fcb609ebbeb2403ea4873371d038e5751b8cd429665c2005d1fb49b5b72"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找年假提前申请天数和内部请假网页地址相关制度",
+        "arguments": {
+          "query": "年假 提前 上班日 主管 请假 网页 地址",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 5.3722,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.9327,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "尚未找到内部请假网页地址信息，需补充检索"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "请假 网页 地址 入口",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "read_document",
+      "decision_basis": "尚未找到内部请假网页地址信息，需补充检索",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510384656bcd9e2286c8e630eb6bd21bb14e8ed8f84e385",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 2726,
+          "total_tokens": 2766,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8574a3ec6d187484b8f97ffcb408e84193232d99530d74ba6b4c1024c49c0f51",
+        "response_content_sha256": "a6ac0cd0c5003ce2fabd90031583ab11c870d7bc9d68c886d661ea982021d311"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "尚未找到内部请假网页地址信息，需补充检索",
+        "arguments": {
+          "query": "请假 网页 地址 入口",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.6185,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "读取正式员工年假FAQ全文，确认是否包含内部请假网页地址信息"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "LEAVE-FT"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "LEAVE-FT",
+        "characters": 41
+      },
+      "next_action": "finish",
+      "decision_basis": "读取正式员工年假FAQ全文，确认是否包含内部请假网页地址信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510390279e5c7cbf117eaa6e6a43617eb55d43d562d75e3",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 37,
+          "prompt_tokens": 2913,
+          "total_tokens": 2950,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "73659d0c4e4583adf9e2dd1a1fb5c21663cf5d5ba39dfcda36624a97bb80c007",
+        "response_content_sha256": "b93af0c87eca488e218e8d97d6e90050f8fc15f56a103afc1c2248b25c546cfa"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "读取正式员工年假FAQ全文，确认是否包含内部请假网页地址信息",
+        "arguments": {
+          "doc_id": "LEAVE-FT"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "LEAVE-FT",
+          "title": "正式员工年假 FAQ",
+          "version_date": "2026-01-10",
+          "scope": "正式员工",
+          "policy_key": "annual_leave",
+          "supersedes": [],
+          "content": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+          "version_peer_ids": []
+        }
+      },
+      "next_decision_basis": "已查到正式员工年假提前申请期限，但未找到内部请假网页地址相关信息"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已查到正式员工年假提前申请期限，但未找到内部请假网页地址相关信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351039566572ef85a6275c3d23ad0e45d46a442cf7b602e2",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 95,
+          "prompt_tokens": 3045,
+          "total_tokens": 3140,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "26bb8409cb83b3a71526d7ba98d5dafd890b6463749f178aaaaa5bb2746d664a",
+        "response_content_sha256": "d631ca864aff56220a879da21e017785342ea855710cf2fbbde1cc33df69d937"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已查到正式员工年假提前申请期限，但未找到内部请假网页地址相关信息",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "年假申请应提前3个工作日提交直属主管。"
+            }
+          ],
+          "missing_info": [
+            "现有资料中未提及内部请假网页地址的相关信息"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M02",
+  "evaluation_turn": 1
+}

@@ -1,0 +1,11 @@
+{
+  "id": "M19",
+  "checks": {
+    "non_complete_status": true,
+    "known_evidence_retained": true,
+    "specific_unknowns_identified": true,
+    "real_response_every_turn": true,
+    "trace_audit": true
+  },
+  "passed": true
+}

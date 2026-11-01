@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "run_id": "dc218717ab3843f69d1ce49ed860921a",
+  "recorded_at": "2026-11-01T06:31:45.957542+00:00",
+  "mode": "live",
+  "input": {
+    "question": "远程登录的验证连续输错五回，被锁后通常得等几分钟、能找谁？IT那边是不是凌晨三点也有人接电话？",
+    "history": []
+  },
+  "model_response_count": 4,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "IT-VPN",
+        "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+        "version_date": "2026-04-12",
+        "scope": "全体员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "IT服务台的值班时间（包括凌晨三点是否有人接电话）现有资料没有明确说明"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[IT-VPN] 远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。\n现有资料尚不能确认的部分：\n- IT服务台的值班时间（包括凌晨三点是否有人接电话）现有资料没有明确说明",
+    "coverage": "partial"
+  },
+  "tool_calls": 3,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "远程登录 密码错误 锁定 解锁时间 IT值班 联系电话",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "search_documents",
+      "decision_basis": "用户询问远程登录输错密码被锁后的解锁等待时间、联系对象以及IT凌晨三点是否有人接电话，需要检索相关IT制度或远程登录管理规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514681750d6bdab3051f46472bfd942e874cc5db09b4efc",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 72,
+          "prompt_tokens": 2396,
+          "total_tokens": 2468,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "47e356086145bee3c930a64fc754cc33e153435a8a80a4ca04e2a1fe3c1dbb10",
+        "response_content_sha256": "aae4d40f3d41058c765c48d9ea2792bd3d438642f977b31cd7512f34bb4f7795"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "用户询问远程登录输错密码被锁后的解锁等待时间、联系对象以及IT凌晨三点是否有人接电话，需要检索相关IT制度或远程登录管理规定",
+        "arguments": {
+          "query": "远程登录 密码错误 锁定 解锁时间 IT值班 联系电话",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 12.0269,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已找到锁定时长和联系IT服务台的依据，但IT值班时间（凌晨三点是否有人接电话）未在当前结果中说明，需补充检索IT服务台值班时间相关制度。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "IT服务台 值班时间 7x24 凌晨",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN",
+          "LEAVE-FT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "已找到锁定时长和联系IT服务台的依据，但IT值班时间（凌晨三点是否有人接电话）未在当前结果中说明，需补充检索IT服务台值班时间相关制度。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514689408c2531bd3ff98f8d456851518a83e6729da9a12",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 88,
+          "prompt_tokens": 2593,
+          "total_tokens": 2681,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7ccbabe18730215d35bc19d1860cb2ebffdadb9b7377978b05dc5abe19c613b3",
+        "response_content_sha256": "0c9331cab94c6135885592d7208d79984332698854a93b75d45ab7fb7d94e957"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "已找到锁定时长和联系IT服务台的依据，但IT值班时间（凌晨三点是否有人接电话）未在当前结果中说明，需补充检索IT服务台值班时间相关制度。",
+        "arguments": {
+          "query": "IT服务台 值班时间 7x24 凌晨",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.7481,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.3307,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "查找IT服务台值班时间及凌晨是否有人的规定"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "IT服务台 工作时间 值班 联系电话",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN",
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "finish",
+      "decision_basis": "查找IT服务台值班时间及凌晨是否有人的规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935146944935f505d6745d4b07a5efbd0dd2f16cfcb483cb5",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 2900,
+          "total_tokens": 2948,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "83dc7f9da0547ea85232ad698c366ae49c01b28f1b3cd66a8baf746f2691d8d3",
+        "response_content_sha256": "17e45fbdd6d1d182b0d19094a194d0cb9faa2bb2fa8518a200916f1686b0c818"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找IT服务台值班时间及凌晨是否有人的规定",
+        "arguments": {
+          "query": "IT服务台 工作时间 值班 联系电话",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.497,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.6614,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到远程登录锁定时间及联系对象，但IT服务台值班时间未在现有资料中说明。"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到远程登录锁定时间及联系对象，但IT服务台值班时间未在现有资料中说明。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514699127d8d1efa022ab0c380e7ecdb91b19d20a477927",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 117,
+          "prompt_tokens": 3324,
+          "total_tokens": 3441,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "bdaf27bca81f63b05da9f25e83ade90c5f689afa20e08079848e567c68fc9bf7",
+        "response_content_sha256": "f0c013ca99631f459f1369ccb9eca28b1c827732270deabfbe6016ae70c7d0f2"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到远程登录锁定时间及联系对象，但IT服务台值班时间未在现有资料中说明。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "IT-VPN",
+              "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。"
+            }
+          ],
+          "missing_info": [
+            "IT服务台的值班时间（包括凌晨三点是否有人接电话）现有资料没有明确说明"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M10",
+  "evaluation_turn": 1
+}

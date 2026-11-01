@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "run_id": "558fb883642f4c11a48f6c047da5e627",
+  "recorded_at": "2026-11-01T04:41:10.363008+00:00",
+  "mode": "live",
+  "input": {
+    "question": "明天最早去北京的飞机几点？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "明天飞往北京的最早航班起飞时间",
+      "可用的实时航班查询工具或外部航班数据",
+      "具体出发地机场"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。\n尚待确认：\n- 明天飞往北京的最早航班起飞时间\n- 可用的实时航班查询工具或外部航班数据\n- 具体出发地机场",
+    "coverage": "none"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "明天 最早 北京 航班 飞机 起飞时间",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "invalid_decision",
+      "decision_basis": "先确认本地资料是否含航班信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508059840c768a416e836e3325baa1ba4dc7f03abf3a9d2",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 43,
+          "prompt_tokens": 2373,
+          "total_tokens": 2416,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "11dcd23003944ad55b6da8294038cc90062eed9278a47d7dcbdf52f0b85cfee2",
+        "response_content_sha256": "9084eb9e3d75f7293bfc51927393862b2bd905e86a1d4ec2b7848a29b37e10d4"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "明天 最早 北京 航班 飞机 起飞时间",
+          "top_k": 5
+        },
+        "reason": "先确认本地资料是否含航班信息"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": ""
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "invalid_decision",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "finish",
+      "decision_basis": "",
+      "validation_errors": [
+        "missing_info must contain short strings"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935080637441b663178cfd0a7f7d426544ba1e44de3194ca8",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 74,
+          "prompt_tokens": 2445,
+          "total_tokens": 2519,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "5b6615afbe0328d08c3115bd9e3249f8c6ee73236e74d92b40a05ffe53b315e2",
+        "response_content_sha256": "1210c52b226b44fd9760b4a9fd14e8ffdd9c9a0d40dac9d425beb6a647067d75"
+      },
+      "next_decision_basis": "企业资料库无航班信息，且缺少实时航班查询能力"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "企业资料库无航班信息，且缺少实时航班查询能力",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793508067839a27e7864c44f7b8eec4115790316fa6e8cf418",
+        "model": "doubao-seed-2-1-pro-260915",
+        "usage": {
+          "completion_tokens": 67,
+          "prompt_tokens": 2452,
+          "total_tokens": 2519,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "11af9e8fe07c4334fbda3e678cd4e0080fdeca6706b3d15d0d583945c098d320",
+        "response_content_sha256": "4c71aacac039e3b305f38d75110b358e70945ebf224db943fe83024bc109453e"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "企业资料库无航班信息，且缺少实时航班查询能力",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "明天飞往北京的最早航班起飞时间",
+            "可用的实时航班查询工具或外部航班数据",
+            "具体出发地机场"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}

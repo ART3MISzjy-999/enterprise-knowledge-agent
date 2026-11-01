@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "run_id": "7038b65ac3354773a4a494d16604d609",
+  "recorded_at": "2026-11-01T05:20:31.397550+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我还在实习期，能和转正同事拿一样的年度带薪假么？请假这几天的意外保险是不是也一定照常保？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "LEAVE-IN",
+        "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+        "version_date": "2026-02-01",
+        "scope": "实习生",
+        "source": "search_documents"
+      },
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "现有资料没有明确说明实习生请假期间的意外保险是否照常投保。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。\n现有资料尚不能确认的部分：\n- 现有资料没有明确说明实习生请假期间的意外保险是否照常投保。",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "实习期 年度带薪假 转正员工 意外保险 请假期间",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN",
+          "LEAVE-FT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找实习期员工年度带薪假天数及请假期间意外保险相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351041471702bdca63a1f2484a0ea811df16c737c5f4a64f",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 50,
+          "prompt_tokens": 2394,
+          "total_tokens": 2444,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4538e15b5ee8be98366de543cecc0fdc1dc98494484397b8ba6ba5da6a87c967",
+        "response_content_sha256": "38e5bf02690879bb0c499c94b9696f5c56eb899a7a9299fb215bdc2ee1e483a3"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找实习期员工年度带薪假天数及请假期间意外保险相关制度",
+        "arguments": {
+          "query": "实习期 年度带薪假 转正员工 意外保险 请假期间",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 9.4914,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 8.5872,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "关于请假期间意外保险的信息在当前检索结果中未找到，需要补充检索相关保险规定。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "意外保险 请假期间 实习期",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-IN"
+        ],
+        "total_hits": 1
+      },
+      "next_action": "finish",
+      "decision_basis": "关于请假期间意外保险的信息在当前检索结果中未找到，需要补充检索相关保险规定。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351042041344b253f74506d616fc92fe2071d898a68eacd0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 51,
+          "prompt_tokens": 2823,
+          "total_tokens": 2874,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "019e7f81b8422c73156e1c48c73a085d44942d49ade8e0d1a1f4d73816eb9079",
+        "response_content_sha256": "a778e671a17ad1c4396b018f36f12d7fd563606cef89656b454a95f849b2738c"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "关于请假期间意外保险的信息在当前检索结果中未找到，需要补充检索相关保险规定。",
+        "arguments": {
+          "query": "意外保险 请假期间 实习期",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.928,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 1,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到实习生年假相关制度，但意外保险相关内容未在现有制度中提及。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到实习生年假相关制度，但意外保险相关内容未在现有制度中提及。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510426368a74db14f970067a2e49e99d172164f6cfd4bf9",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 145,
+          "prompt_tokens": 3009,
+          "total_tokens": 3154,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "9ff6ee39432bc5fef2d0375b616f08ebabedb527fe067e0b69d49c6d27a1d614",
+        "response_content_sha256": "3683ed1937f0a87c7f1a18a6c6c970b4547154039921a19403d0cae0e74cfb11"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到实习生年假相关制度，但意外保险相关内容未在现有制度中提及。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "LEAVE-IN",
+              "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+            }
+          ],
+          "missing_info": [
+            "现有资料没有明确说明实习生请假期间的意外保险是否照常投保。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M04",
+  "evaluation_turn": 1
+}

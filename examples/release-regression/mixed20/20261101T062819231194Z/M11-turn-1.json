@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "run_id": "6625ea5a0ad545f193ecbf6298b5c88a",
+  "recorded_at": "2026-11-01T06:32:02.723778+00:00",
+  "mode": "live",
+  "input": {
+    "question": "Aurora普通标准套餐输出视频能用哪种封装、画面最高多清楚？它还能自动听语音生成字幕吗？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "PRODUCT-EXPORT",
+        "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+        "version_date": "2026-05-01",
+        "scope": "Aurora标准版",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "Aurora普通标准套餐是否支持自动听语音生成字幕，现有资料没有明确说明"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[PRODUCT-EXPORT] Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。\n现有资料尚不能确认的部分：\n- Aurora普通标准套餐是否支持自动听语音生成字幕，现有资料没有明确说明",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "Aurora普通标准套餐 视频封装格式 最高画质 自动语音生成字幕",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查询Aurora普通标准套餐的视频封装格式、最高画质分辨率以及自动语音生成字幕功能",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935147067030bbf51ace819fab93059a10f5630b34856b24d",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 61,
+          "prompt_tokens": 2392,
+          "total_tokens": 2453,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c2fe0848d37f6b3105d368469018d010937d832b0ebb6b500504deae915aaa00",
+        "response_content_sha256": "65f84bac55ae2b75494c26990e3078d1239a03b14ffbd2377a3fc6a07aab56a3"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查询Aurora普通标准套餐的视频封装格式、最高画质分辨率以及自动语音生成字幕功能",
+        "arguments": {
+          "query": "Aurora普通标准套餐 视频封装格式 最高画质 自动语音生成字幕",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 10.6066,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要查找Aurora普通标准套餐是否支持自动语音生成字幕功能，现有检索结果未涉及该问题。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "Aurora普通标准套餐 自动语音生成字幕",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "需要查找Aurora普通标准套餐是否支持自动语音生成字幕功能，现有检索结果未涉及该问题。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514713025b775ef38f1ee27b2e55af1b66efc6d95c2300d",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 57,
+          "prompt_tokens": 2715,
+          "total_tokens": 2772,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "181ecb09cb42969a6694c36171017f1ba94415e27ed1242ef3cfe8ec2870f68b",
+        "response_content_sha256": "24aeb6d48c0911792eacb0e3ff8dcfb115bdaed1347be30372e6888c69f0b89c"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要查找Aurora普通标准套餐是否支持自动语音生成字幕功能，现有检索结果未涉及该问题。",
+        "arguments": {
+          "query": "Aurora普通标准套餐 自动语音生成字幕",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.962,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到Aurora普通标准套餐导出格式和分辨率信息，未找到自动语音生成字幕相关说明"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到Aurora普通标准套餐导出格式和分辨率信息，未找到自动语音生成字幕相关说明",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514717774bed15afc0092f915eb01246432c6f7b65850f5",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 126,
+          "prompt_tokens": 3029,
+          "total_tokens": 3155,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "4a92ad4388d95f9920cf5b0fab4256b0ba3f679ec48a573e56e328c11923bcea",
+        "response_content_sha256": "3277a7325103c87c088cb784d5789e43142afa5c2a1c1f3dc70d4c3a58a5d77f"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到Aurora普通标准套餐导出格式和分辨率信息，未找到自动语音生成字幕相关说明",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。"
+            }
+          ],
+          "missing_info": [
+            "Aurora普通标准套餐是否支持自动听语音生成字幕，现有资料没有明确说明"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M11",
+  "evaluation_turn": 1
+}

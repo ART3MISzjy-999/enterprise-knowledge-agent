@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "run_id": "d2a64cabe87044af995696787dfe40ce",
+  "recorded_at": "2026-11-01T02:34:55.636905+00:00",
+  "mode": "offline_mock",
+  "input": {
+    "question": "公司火星殖民补贴每人多少元？",
+    "history": []
+  },
+  "model_response_count": 0,
+  "evidence_kind": "offline_script_only",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "没有火星殖民补贴资料"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "offline_mock",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民补贴",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "search_documents",
+      "decision_basis": "离线脚本：检索资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星殖民补贴",
+          "top_k": 5
+        },
+        "reason": "离线脚本：检索资料"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "离线脚本：检索资料"
+    },
+    {
+      "step": 2,
+      "source": "offline_mock",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星 津贴 标准",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "PRODUCT-EXPORT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "离线脚本：检索资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星 津贴 标准",
+          "top_k": 5
+        },
+        "reason": "离线脚本：检索资料"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "score": 1.8945,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 1.2136,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "离线脚本：提交预设结果供流程验证"
+    },
+    {
+      "step": 3,
+      "source": "offline_mock",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "离线脚本：提交预设结果供流程验证",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "离线脚本：提交预设结果供流程验证",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "没有火星殖民补贴资料"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "insufficient",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

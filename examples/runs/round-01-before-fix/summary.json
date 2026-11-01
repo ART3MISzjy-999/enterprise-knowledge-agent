@@ -1,0 +1,148 @@
+{
+  "mode": "live",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "answered",
+      "actual_status": "incomplete",
+      "steps": 3,
+      "tool_calls": 1
+    },
+    {
+      "case": "conflict",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "conflict",
+      "actual_status": "incomplete",
+      "steps": 1,
+      "tool_calls": 0
+    },
+    {
+      "case": "insufficient",
+      "passed": false,
+      "errors": [
+        "unexpected_status"
+      ],
+      "expected_status": "insufficient",
+      "actual_status": "incomplete",
+      "steps": 2,
+      "tool_calls": 1
+    },
+    {
+      "case": "paraphrase",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "answered",
+      "actual_status": "incomplete",
+      "steps": 3,
+      "tool_calls": 1
+    },
+    {
+      "case": "followup",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "answered",
+      "actual_status": "incomplete",
+      "steps": 3,
+      "tool_calls": 1
+    },
+    {
+      "case": "tool_failure",
+      "passed": true,
+      "errors": [],
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "steps": 4,
+      "tool_calls": 3
+    },
+    {
+      "case": "tool_recovery",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 4,
+      "tool_calls": 2
+    },
+    {
+      "case": "evidence_single",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "answered",
+      "actual_status": "incomplete",
+      "steps": 1,
+      "tool_calls": 0
+    },
+    {
+      "case": "evidence_conflict",
+      "passed": false,
+      "errors": [
+        "unexpected_status",
+        "missing_expected_citations"
+      ],
+      "expected_status": "conflict",
+      "actual_status": "incomplete",
+      "steps": 2,
+      "tool_calls": 1
+    }
+  ],
+  "passed": 2,
+  "total": 9,
+  "observed_paths": [
+    {
+      "case": "normal",
+      "after_first_tool": "finish"
+    },
+    {
+      "case": "conflict",
+      "after_first_tool": null
+    },
+    {
+      "case": "insufficient",
+      "after_first_tool": "model_error"
+    },
+    {
+      "case": "paraphrase",
+      "after_first_tool": "finish"
+    },
+    {
+      "case": "followup",
+      "after_first_tool": "finish"
+    },
+    {
+      "case": "tool_failure",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "tool_recovery",
+      "after_first_tool": "search_documents"
+    },
+    {
+      "case": "evidence_single",
+      "after_first_tool": null
+    },
+    {
+      "case": "evidence_conflict",
+      "after_first_tool": "model_error"
+    }
+  ],
+  "real_llm_path_divergence": true,
+  "note": "仅比较已记录行为，不构成密码学真实性证明；离线脚本不证明模型决策。"
+}

@@ -1,0 +1,25 @@
+{
+  "mode": "live",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "errors": [],
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "steps": 2,
+      "tool_calls": 1
+    }
+  ],
+  "passed": 1,
+  "total": 1,
+  "observed_paths": [
+    {
+      "case": "normal",
+      "after_first_tool": "finish"
+    }
+  ],
+  "real_llm_path_divergence": false,
+  "note": "仅比较已记录行为，不构成密码学真实性证明；离线脚本不证明模型决策。",
+  "run_directory": "runs/20261101T015753332540Z"
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "run_id": "8548cceaf70f442fa5eb79a090bdd764",
+  "recorded_at": "2026-11-01T02:34:55.638085+00:00",
+  "mode": "offline_mock",
+  "input": {
+    "question": "正式员工每年有多少天带薪年假？",
+    "history": []
+  },
+  "model_response_count": 0,
+  "evidence_kind": "offline_script_only",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "incomplete",
+    "citations": [],
+    "missing_info": [
+      "检索工具持续不可用，无法确认原文"
+    ],
+    "question": "",
+    "answer": "本次查询未完成，不能确认结论。"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "offline_mock",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 年假",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "search_documents",
+      "decision_basis": "离线脚本：检索资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工 年假",
+          "top_k": 5
+        },
+        "reason": "离线脚本：检索资料"
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "离线脚本：检索资料"
+    },
+    {
+      "step": 2,
+      "source": "offline_mock",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "正式员工 年假",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_action": "finish",
+      "decision_basis": "离线脚本：检索资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "正式员工 年假",
+          "top_k": 5
+        },
+        "reason": "离线脚本：检索资料"
+      },
+      "tool_result": {
+        "ok": false,
+        "error": "injected_search_unavailable",
+        "retryable": true
+      },
+      "next_decision_basis": "离线脚本：提交预设结果供流程验证"
+    },
+    {
+      "step": 3,
+      "source": "offline_mock",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "离线脚本：提交预设结果供流程验证",
+      "validation_errors": [],
+      "model_metadata": {
+        "model": "scripted-fixture",
+        "not_llm_evidence": true
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "离线脚本：提交预设结果供流程验证",
+        "result": {
+          "status": "incomplete",
+          "citations": [],
+          "missing_info": [
+            "检索工具持续不可用，无法确认原文"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "tool_failure",
+  "test_setup": {
+    "injected_search_failures": 99,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "run_id": "061cc259234147bdaa34ca20dbf8195c",
+  "recorded_at": "2026-11-01T06:36:03.813419+00:00",
+  "mode": "live",
+  "input": {
+    "question": "报销申请递交期限到底几天？下个月我们公司哪天放假，也能一并告诉我吗？",
+    "history": []
+  },
+  "model_response_count": 5,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "conflict",
+    "citations": [
+      {
+        "doc_id": "EXP-B",
+        "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+        "version_date": "2026-03-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      },
+      {
+        "doc_id": "EXP-A",
+        "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+        "version_date": "2026-01-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "公司下个月的具体放假日期，现有企业制度资料中没有相关放假安排的规定。"
+    ],
+    "question": "报销申请递交期限有15天和30天两个版本且均适用于全体员工、无明确替代关系，请确认应以哪份制度为准？",
+    "answer": "资料存在冲突，尚不能确定适用结论；版本日期本身不足以确定优先级。\n[EXP-B] 【优先级待确认】员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n[EXP-A] 【优先级待确认】员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n尚待确认：\n- 公司下个月的具体放假日期，现有企业制度资料中没有相关放假安排的规定。\n报销申请递交期限有15天和30天两个版本且均适用于全体员工、无明确替代关系，请确认应以哪份制度为准？",
+    "coverage": "partial"
+  },
+  "tool_calls": 4,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "报销申请递交期限",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-B",
+          "EXP-A",
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "read_document",
+      "decision_basis": "查找报销申请递交期限相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514932331db75dded7c19a7df720a76be3f48b559ed73d0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 33,
+          "prompt_tokens": 2384,
+          "total_tokens": 2417,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "36e85802a80ead9cf9520b880238b1b402e77ef3a8d1663736ef666eda6b62cc",
+        "response_content_sha256": "eb308ad0cb08b1fbdada39aa88c14e9dfbf622c490576a7bce79e016c47db69b"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找报销申请递交期限相关规定",
+        "arguments": {
+          "query": "报销申请递交期限",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 4.266,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 4.2309,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 0.7201,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 0.6261,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "报销期限存在15天和30天两个版本，需读取双方原文核对范围与替代关系"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-B"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-B",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "报销期限存在15天和30天两个版本，需读取双方原文核对范围与替代关系",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351493958701eed278f237d49413dcbc4d74636cb327976c",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 42,
+          "prompt_tokens": 2914,
+          "total_tokens": 2956,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "20178d5147c5ef149185c3c42101a300b83cbaa73a4489f27568fbddd5bb08e0",
+        "response_content_sha256": "480e628b9ffcb4f9532aa88da7044af895b2b14d2fc837ca91a3f441af0b974b"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "报销期限存在15天和30天两个版本，需读取双方原文核对范围与替代关系",
+        "arguments": {
+          "doc_id": "EXP-B"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-B",
+          "title": "费用报销操作 FAQ",
+          "version_date": "2026-03-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+          "version_peer_ids": [
+            "EXP-A"
+          ]
+        }
+      },
+      "next_decision_basis": "报销期限存在15天和30天两个版本，需读取EXP-A原文核对冲突详情"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "search_documents",
+      "decision_basis": "报销期限存在15天和30天两个版本，需读取EXP-A原文核对冲突详情",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514944066ef4fc3ca9e1b45144fe86cb6665cb6fbe40879",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 48,
+          "prompt_tokens": 3048,
+          "total_tokens": 3096,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "49f4cc8e73c8f4e76904f55991eab466e5766223e1efaab3b923c7385560ba1b",
+        "response_content_sha256": "1a4c871c62f3745534c5af65d13c5c2fc491d5f3e530d87894e3d747019f991b"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "报销期限存在15天和30天两个版本，需读取EXP-A原文核对冲突详情",
+        "arguments": {
+          "doc_id": "EXP-A"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+          "version_peer_ids": [
+            "EXP-B"
+          ]
+        }
+      },
+      "next_decision_basis": "查找公司放假安排相关资料"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "公司放假安排 法定节假日 休息日",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "finish",
+      "decision_basis": "查找公司放假安排相关资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351495316124d2d0d80fc72db53ac7bec89037cf5063dae7",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 3182,
+          "total_tokens": 3218,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7c626233ec3af9fd2b6a062832b3d719124a375731d4e333b4573500980c2509",
+        "response_content_sha256": "74b7cabe814c08ca6075a482a1beaec361bb3e91ce07387d239b796f0f5e2ab3"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找公司放假安排相关资料",
+        "arguments": {
+          "query": "公司放假安排 法定节假日 休息日",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "报销期限存在两份制度冲突且无优先级说明，放假安排无任何资料依据"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:conflict",
+      "decision_basis": "报销期限存在两份制度冲突且无优先级说明，放假安排无任何资料依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793514957048953f584df703753d1068e2d4c6b117bc925fc6",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 186,
+          "prompt_tokens": 3250,
+          "total_tokens": 3436,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "1812866bb631a28a4c2e5525b07e8970a907f2e5d794322a3d1bed665a5a4249",
+        "response_content_sha256": "de99a224099ff24b9bf0d66d580cbf8b3e36c2615f869cc12723def46438c561"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "报销期限存在两份制度冲突且无优先级说明，放假安排无任何资料依据",
+        "result": {
+          "status": "conflict",
+          "citations": [
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            },
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+            }
+          ],
+          "missing_info": [
+            "公司下个月的具体放假日期，现有企业制度资料中没有相关放假安排的规定。"
+          ],
+          "question": "报销申请递交期限有15天和30天两个版本且均适用于全体员工、无明确替代关系，请确认应以哪份制度为准？"
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M20",
+  "evaluation_turn": 1
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "Codex逐条审读，不是独立人工或模型裁判",
+  "cases_reviewed": 20,
+  "meets_expected_behavior_in_full_run": 19,
+  "failed_in_full_run": [
+    {
+      "id": "M19",
+      "reason": "第二轮model_connection_failed，按设计返回未完成"
+    }
+  ],
+  "fixed_previous_M18_identity_label": true,
+  "M19_separate_retry_passed": true,
+  "note": "不将单独重跑成功改写为原完整轮20/20；原失败记录保留。"
+}

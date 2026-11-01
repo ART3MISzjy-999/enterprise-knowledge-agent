@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "run_id": "a9ee4fe123de44bbacb614be3eab8cd0",
+  "recorded_at": "2026-11-01T01:47:07.181842+00:00",
+  "mode": "live",
+  "input": {
+    "question": "公司火星殖民补贴每人多少元？",
+    "history": []
+  },
+  "model_response_count": 8,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [],
+    "missing_info": [
+      "公司暂无火星殖民补贴相关的制度或公示信息"
+    ],
+    "question": "",
+    "answer": "现有资料不足以回答，未找到可确认的依据。"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民补贴 每人补贴金额",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "model_error",
+      "decision_basis": "查找火星殖民补贴的相关制度，确认每人补贴金额",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497589035f513ed7fef0849b399d81a53a070561795d085",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 778,
+          "total_tokens": 818,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "58035577ed34bb51178acb59801efcb725c4d8624ad589214a2c3e2c02545a49",
+        "response_content_sha256": "628a1115fb04c29c6b09b63caf24de446a16d6e98484bf3429afa6ef2b3cd254"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星殖民补贴 每人补贴金额",
+          "top_k": 5
+        },
+        "reason": "查找火星殖民补贴的相关制度，确认每人补贴金额"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497593247114488fbfaf31238bc59a8d8e7bd249061b20f",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 61,
+          "prompt_tokens": 845,
+          "total_tokens": 906,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "8275584ac54820f95cecb7958b4d36d00458807e26ab88221466f544ddb7f395",
+        "response_content_sha256": "6fc5b8a9c8f1899e5491238d4c2fb0f688b497a0bf29ed7e2a31388ac1426321"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497597310223e95793e6cdc610dbdf3940c514602fc7df5",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 62,
+          "prompt_tokens": 869,
+          "total_tokens": 931,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7ede0e14f2602034fc474459b445b304d21200a74d4ed6652ccc96d36e5991e9",
+        "response_content_sha256": "841c349fa12a244dfa580bbcbda01414bf677b3de0fb771e28cefe5498aa1a59"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976010113ea4fa82759f0cae4f2ffa723d4f9dd652234b",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 72,
+          "prompt_tokens": 894,
+          "total_tokens": 966,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e24cace9c72c5b65ce2604ed7faa89768ade88f0d2737b4502ff04470bb3448c",
+        "response_content_sha256": "3ba21f557e531c9d953e61cdcf76486ddfa26c75989b6f1f63da5dc7201dea12"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497606377ed42e8978f7887761870c2af59029dd736d4ea",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 919,
+          "total_tokens": 973,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "b6f386a4ce7845ab126b330965229b8f4b5555e6d0f6cd8de4e031c84f8ca921",
+        "response_content_sha256": "efc2b586d86fc9300e1f30b2395333f1ece91db8a91c081a3d0ba0dff8ba80b0"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 6,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497613220f952b6c252d6ae62c15909f77d85597e86eecb",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 113,
+          "prompt_tokens": 944,
+          "total_tokens": 1057,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d78663b68f715fd7863b894a9bbd1d5b508c860638a1f6db2c8a5614f69bcaf8",
+        "response_content_sha256": "07c1f46034218e88291bb13efd804fa5597a69cf82101bb89cc45ff0f7086242"
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 7,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "finish",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934976206601a8dd591c9e3190a609d5cb270370aee50aef0",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 59,
+          "prompt_tokens": 969,
+          "total_tokens": 1028,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "b5e7fe1929b62bb79ffbe3ae901a18a3ed132f1481b263223e118e7d3514ddd2",
+        "response_content_sha256": "faffe9864b9d4cb97cc9601a365feb71396eaac41e72980167fc4bb68ba65616"
+      },
+      "next_decision_basis": "未查询到相关补贴信息"
+    },
+    {
+      "step": 8,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "未查询到相关补贴信息",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497624531af90e435925abe7654511814c3e70abe231401",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 994,
+          "total_tokens": 1040,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e5fa1e1ce75b9df78c31fae6eb7ebdce6610cc43c9c94235c8160651282be796",
+        "response_content_sha256": "35e6bc8e92dd3412978211b51950f957808857d3caee7f3bead57be21121b9c1"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "未查询到相关补贴信息",
+        "result": {
+          "status": "insufficient",
+          "citations": [],
+          "missing_info": [
+            "公司暂无火星殖民补贴相关的制度或公示信息"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "insufficient",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

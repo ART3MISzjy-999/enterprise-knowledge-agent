@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "run_id": "73cb8c1edad6494fa90afe014dd9f832",
+  "recorded_at": "2026-11-01T05:25:02.038015+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我转正后在杭州出差住宿一晚的费用标准多少？Aurora标准档能输出什么格式？再问一句公司明年打算上市吗？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "TRAVEL-HOTEL",
+        "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+        "version_date": "2026-06-01",
+        "scope": "正式员工",
+        "source": "search_documents"
+      },
+      {
+        "doc_id": "PRODUCT-EXPORT",
+        "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+        "version_date": "2026-05-01",
+        "scope": "Aurora标准版",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "公司明年是否打算上市，现有企业制度与产品资料中无相关依据，无法通过当前工具查询"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[TRAVEL-HOTEL] 正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。\n[PRODUCT-EXPORT] Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。\n现有资料尚不能确认的部分：\n- 公司明年是否打算上市，现有企业制度与产品资料中无相关依据，无法通过当前工具查询",
+    "coverage": "partial"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "出差住宿标准 杭州 Aurora标准档 输出格式 公司上市计划",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "TRAVEL-HOTEL",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "需要先检索杭州出差住宿标准、Aurora标准档输出格式和公司上市计划相关资料",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510690719359db854caeb7990039c08834b9363f3ae6229",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 58,
+          "prompt_tokens": 2397,
+          "total_tokens": 2455,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "6c9ad67bacef39b67da9119b7835cad33484195ed58042383ff6d51c70d3d02f",
+        "response_content_sha256": "d6dceb5e433a83905cc4321b3351622426af94aab57b5375592761eae23f61e0"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要先检索杭州出差住宿标准、Aurora标准档输出格式和公司上市计划相关资料",
+        "arguments": {
+          "query": "出差住宿标准 杭州 Aurora标准档 输出格式 公司上市计划",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 7.0711,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 6.8436,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到差旅住宿和Aurora导出相关资料，公司上市计划无相关文档依据"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到差旅住宿和Aurora导出相关资料，公司上市计划无相关文档依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510695124427deff93a3e6360e32202b6d931cb30a0aa55",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 177,
+          "prompt_tokens": 2716,
+          "total_tokens": 2893,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "48764398089b66d09ba9e13e23886b5ebd09a9590c3931a7de8cf505711f43c9",
+        "response_content_sha256": "a62fd420de009c51c99c07739267f721376b70e8a9abcf73ed298b2a222f21ac"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到差旅住宿和Aurora导出相关资料，公司上市计划无相关文档依据",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "quote": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。"
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "quote": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。"
+            }
+          ],
+          "missing_info": [
+            "公司明年是否打算上市，现有企业制度与产品资料中无相关依据，无法通过当前工具查询"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M16",
+  "evaluation_turn": 1
+}

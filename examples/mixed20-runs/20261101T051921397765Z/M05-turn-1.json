@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "run_id": "c227ef3972f743e18525fd80f87f6579",
+  "recorded_at": "2026-11-01T05:20:55.445770+00:00",
+  "mode": "live",
+  "input": {
+    "question": "员工垫出去的钱应该隔多久把报账申请递上去？交完以后财务最迟几天必须把钱打回来？",
+    "history": []
+  },
+  "model_response_count": 5,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "conflict",
+    "citations": [
+      {
+        "doc_id": "EXP-A",
+        "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+        "version_date": "2026-01-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      },
+      {
+        "doc_id": "EXP-B",
+        "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+        "version_date": "2026-03-01",
+        "scope": "全体员工",
+        "source": "read_document"
+      }
+    ],
+    "missing_info": [
+      "员工垫付费用后财务付款的最迟到账时限，现有资料中没有相关规定"
+    ],
+    "question": "关于费用报销提交期限，EXP-A（2026-01-01）规定30天、EXP-B（2026-03-01）规定15天，两份文件均未说明优先级或替代关系，请问应以哪份制度为准？",
+    "answer": "资料存在冲突，尚不能确定适用结论；版本日期本身不足以确定优先级。\n[EXP-A] 【优先级待确认】员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。\n[EXP-B] 【优先级待确认】员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。\n尚待确认：\n- 员工垫付费用后财务付款的最迟到账时限，现有资料中没有相关规定\n关于费用报销提交期限，EXP-A（2026-01-01）规定30天、EXP-B（2026-03-01）规定15天，两份文件均未说明优先级或替代关系，请问应以哪份制度为准？",
+    "coverage": "partial"
+  },
+  "tool_calls": 4,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "员工垫付款 报销申请提交期限 财务付款时限",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-A",
+          "EXP-B",
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找员工垫付费用报销申请提交期限及财务付款时限规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935104320316845be5704fb75f90d9568bc7766f62179a1f1",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 47,
+          "prompt_tokens": 2391,
+          "total_tokens": 2438,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d16dde929bf370eb7cf28e6a4aadcb83c8a02e925b22f2dc2bc444f3f2a2ddc7",
+        "response_content_sha256": "7cf3cb0fb24c3eeb090b6e0444b5c012e2c19e00259ea28f1209b1611ee7e7d1"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找员工垫付费用报销申请提交期限及财务付款时限规定",
+        "arguments": {
+          "query": "员工垫付款 报销申请提交期限 财务付款时限",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 5.6172,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 5.2578,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.7012,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 0.6261,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "目前仅查到报销申请提交期限的两种规定，尚未查到财务付款时限的相关内容，需补充检索。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "财务报销付款时限 到账时间",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "EXP-B",
+          "EXP-A"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "read_document",
+      "decision_basis": "目前仅查到报销申请提交期限的两种规定，尚未查到财务付款时限的相关内容，需补充检索。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510436287faae7fb2907d9df6cb16d7e62d67e7fd55223f",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 2930,
+          "total_tokens": 2984,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "810393ffef558cd50b2eeffd5176a7d4686baa251faf4b2aa2a1f459cea01c7a",
+        "response_content_sha256": "49d0f3a11307514df2c9900e79595451ba2f23a2d80ab7493b8812c1b41708f8"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "目前仅查到报销申请提交期限的两种规定，尚未查到财务付款时限的相关内容，需补充检索。",
+        "arguments": {
+          "query": "财务报销付款时限 到账时间",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "EXP-B",
+              "title": "费用报销操作 FAQ",
+              "version_date": "2026-03-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-A"
+              ],
+              "score": 2.193,
+              "snippet": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "EXP-A",
+              "title": "费用报销提交规则",
+              "version_date": "2026-01-01",
+              "scope": "全体员工",
+              "policy_key": "expense_deadline",
+              "supersedes": [],
+              "version_peer_ids": [
+                "EXP-B"
+              ],
+              "score": 2.1802,
+              "snippet": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "EXP-A与EXP-B在员工垫付款报销提交期限上存在冲突，且两份文件均未明确财务付款时限，需读取原文确认是否有更多相关内容。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-A"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-A",
+        "characters": 38
+      },
+      "next_action": "read_document",
+      "decision_basis": "EXP-A与EXP-B在员工垫付款报销提交期限上存在冲突，且两份文件均未明确财务付款时限，需读取原文确认是否有更多相关内容。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935104402284ca67e9480bca887386e68bd4f0aad86ee51de",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 56,
+          "prompt_tokens": 3231,
+          "total_tokens": 3287,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7c39f0e57e02d70f5e65f7a6ccdfa05b60c435b88bcdc7689cf460fd6e69bf03",
+        "response_content_sha256": "fa3a835737704f50112bea4e8b08c3bdb4431762fd408653bd8187a5d7a23f44"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "EXP-A与EXP-B在员工垫付款报销提交期限上存在冲突，且两份文件均未明确财务付款时限，需读取原文确认是否有更多相关内容。",
+        "arguments": {
+          "doc_id": "EXP-A"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-A",
+          "title": "费用报销提交规则",
+          "version_date": "2026-01-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。",
+          "version_peer_ids": [
+            "EXP-B"
+          ]
+        }
+      },
+      "next_decision_basis": "需读取EXP-B原文核对报销提交期限，并确认是否包含财务付款时限规定"
+    },
+    {
+      "step": 4,
+      "source": "live",
+      "action": "read_document",
+      "tool_arguments": {
+        "doc_id": "EXP-B"
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_id": "EXP-B",
+        "characters": 38
+      },
+      "next_action": "finish",
+      "decision_basis": "需读取EXP-B原文核对报销提交期限，并确认是否包含财务付款时限规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179351044582268a4d5226e4976fceebdcfa7e5c0e722dcdf6f",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 3365,
+          "total_tokens": 3405,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "6366aabb584ff090cd1bae92f63b8f7efe05fc641c2b8dc0a034d758e2fba5fb",
+        "response_content_sha256": "3eb3e592731292817e7e35ae8fc599d359c4950a4a50e017b502f5ff1a8ef373"
+      },
+      "decision": {
+        "action": "read_document",
+        "reason": "需读取EXP-B原文核对报销提交期限，并确认是否包含财务付款时限规定",
+        "arguments": {
+          "doc_id": "EXP-B"
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "doc_id": "EXP-B",
+          "title": "费用报销操作 FAQ",
+          "version_date": "2026-03-01",
+          "scope": "全体员工",
+          "policy_key": "expense_deadline",
+          "supersedes": [],
+          "content": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。",
+          "version_peer_ids": [
+            "EXP-A"
+          ]
+        }
+      },
+      "next_decision_basis": "报销提交期限存在两个制度冲突且无替代关系，同时财务付款时限无资料依据"
+    },
+    {
+      "step": 5,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:conflict",
+      "decision_basis": "报销提交期限存在两个制度冲突且无替代关系，同时财务付款时限无资料依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510449992c2c27a4fa99c9a23708f547e9737abc14bfa93",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 199,
+          "prompt_tokens": 3499,
+          "total_tokens": 3698,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "7fa871b3be8f4997dd1c0bbf980ad44921f1a1ce7481c9fbff79ddf6a8cdba21",
+        "response_content_sha256": "87c386325a22025ca784048c04558479b15e0ecc250edff1175ec98396f638c6"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "报销提交期限存在两个制度冲突且无替代关系，同时财务付款时限无资料依据",
+        "result": {
+          "status": "conflict",
+          "citations": [
+            {
+              "doc_id": "EXP-A",
+              "quote": "员工应在费用发生后30天内提交报销申请。本文件未说明与其他报销文件的优先级。"
+            },
+            {
+              "doc_id": "EXP-B",
+              "quote": "员工应在费用发生后15天内提交报销申请。本文件未声明废止或替代其他报销制度。"
+            }
+          ],
+          "missing_info": [
+            "员工垫付费用后财务付款的最迟到账时限，现有资料中没有相关规定"
+          ],
+          "question": "关于费用报销提交期限，EXP-A（2026-01-01）规定30天、EXP-B（2026-03-01）规定15天，两份文件均未说明优先级或替代关系，请问应以哪份制度为准？"
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M05",
+  "evaluation_turn": 1
+}

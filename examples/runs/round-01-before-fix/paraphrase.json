@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "run_id": "15bf026c726342228a8c3eec3482fd65",
+  "recorded_at": "2026-11-01T01:41:15.176816+00:00",
+  "mode": "live",
+  "input": {
+    "question": "全职同事一年有几天带薪休假额度？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "incomplete",
+    "answer": "本次查询未完成，不能确认结论。",
+    "citations": [],
+    "missing_info": [
+      "invalid_model_json"
+    ],
+    "question": ""
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "全职员工带薪休假额度",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 3
+      },
+      "next_action": "finish",
+      "decision_basis": "查找全职员工年度带薪休假相关的制度规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934972640143906a72ab000b5ec26f7911656631d359ac089",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 714,
+          "total_tokens": 750,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "52266c86d157cae615156b9428c223235298d2b4128f8ffa95fed43783f2a7e6",
+        "response_content_sha256": "9ef29fb6e46096ea486ac6ae3525b871d4312172cce0d3bf3417a8331df85fa1"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "全职员工带薪休假额度",
+          "top_k": 5
+        },
+        "reason": "查找全职员工年度带薪休假相关的制度规定"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 6.7259,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "score": 6.1819,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 3,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已找到全职员工带薪休假额度的相关制度"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "model_error",
+      "decision_basis": "已找到全职员工带薪休假额度的相关制度",
+      "validation_errors": [
+        "question_allowed_only_for_conflict_or_clarification"
+      ],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217934972678351f1c2502e2c4024a5d577df8bf366bf39818a9",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 81,
+          "prompt_tokens": 1113,
+          "total_tokens": 1194,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d05cdc8b67352fed48ace18907f4c134a1a2a0e8000df1220a8907ea6734b804",
+        "response_content_sha256": "ae217d833e325a02a73eee53bd1e998170f711843f79ea421b72ca1c41b3545a"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已找到全职员工带薪休假额度的相关制度",
+        "result": {
+          "status": "answered",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+            }
+          ],
+          "missing_info": [],
+          "question": "全职同事一年有几天带薪休假额度？"
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497271881b6facf02ebac6f8e2d6055a5df25a90761ecba",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 78,
+          "prompt_tokens": 1125,
+          "total_tokens": 1203,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "fcfab5b889c8307b6e00f2d558f5c9ca5ea9df68b9294ef44968183ee7399f77",
+        "response_content_sha256": "f105bc32783e074bce93bdb729943989fb956f4d70a1fd9ed5f62464058d220d"
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "paraphrase",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

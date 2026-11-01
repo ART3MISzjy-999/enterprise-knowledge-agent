@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "run_id": "ce1af6f2c4c341b1b0aa4d5676c38aca",
+  "recorded_at": "2026-11-01T05:25:19.493909+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我在这里干满一年，年休能放几天还领工资？年度绩效奖会不会跟着少？",
+    "history": []
+  },
+  "model_response_count": 3,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "needs_clarification",
+    "citations": [
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "search_documents"
+      },
+      {
+        "doc_id": "LEAVE-IN",
+        "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+        "version_date": "2026-02-01",
+        "scope": "实习生",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "用户的具体用工身份（正式员工或实习生等）尚未明确，无法确定适用的年假天数与工资规则。",
+      "现有资料未说明休年假是否会影响年度绩效奖。"
+    ],
+    "question": "请问你目前的用工身份是正式员工还是实习生呢？",
+    "answer": "需要补充适用信息后再确认。\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。\n[LEAVE-IN] 实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。\n尚待确认：\n- 用户的具体用工身份（正式员工或实习生等）尚未明确，无法确定适用的年假天数与工资规则。\n- 现有资料未说明休年假是否会影响年度绩效奖。\n请问你目前的用工身份是正式员工还是实习生呢？",
+    "coverage": "partial"
+  },
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年休假 满一年 天数 工资 年度绩效奖",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "search_documents",
+      "decision_basis": "查找年休假天数、带薪及年度绩效奖相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935107027194de950134829ff25bce119eef8760b749ac671",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 47,
+          "prompt_tokens": 2387,
+          "total_tokens": 2434,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "d3d2dc2101644f54eaf4710f032e7f21f98f12ef6f52eb64d8723d30307fc1a0",
+        "response_content_sha256": "3ed636a74f35f8ae9e2fde9a1e316507087d7f8b98a33b0c4b6e6c51fe4ec7c0"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找年休假天数、带薪及年度绩效奖相关规定",
+        "arguments": {
+          "query": "年休假 满一年 天数 工资 年度绩效奖",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.8614,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.6185,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "需要确认年假是否影响年度绩效奖，以及正式员工满一年后的具体年假天数和工资规定"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "年假 年度绩效奖 影响 扣减",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "LEAVE-FT",
+          "LEAVE-IN"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "clarify",
+      "decision_basis": "需要确认年假是否影响年度绩效奖，以及正式员工满一年后的具体年假天数和工资规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510708653f2bc763de04867cc2f13d375222e0d801a5f0a",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 53,
+          "prompt_tokens": 2693,
+          "total_tokens": 2746,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e0f046c07704bb0e413540993d7189142b606d46961695553d2e2613ae09619a",
+        "response_content_sha256": "11d0707e616c3c5193fbe38c61e7a9c8ef97ceef16765d8c8f66768420ae776b"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要确认年假是否影响年度绩效奖，以及正式员工满一年后的具体年假天数和工资规定",
+        "arguments": {
+          "query": "年假 年度绩效奖 影响 扣减",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 4.0415,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.1571,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "目前仅找到正式员工和实习生两类身份的年假制度，用户未明确其用工身份，需先确认；且现有资料未提及年假对年度绩效奖的影响。"
+    },
+    {
+      "step": 3,
+      "source": "live",
+      "action": "clarify",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:needs_clarification",
+      "decision_basis": "目前仅找到正式员工和实习生两类身份的年假制度，用户未明确其用工身份，需先确认；且现有资料未提及年假对年度绩效奖的影响。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793510714105e1d4082764930dbbed2aa61ee6ceaee4341cc0",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 203,
+          "prompt_tokens": 2996,
+          "total_tokens": 3199,
+          "prompt_tokens_details": {
+            "cached_tokens": 1848
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "191f7ec2d70fd318d629f5249df144745e08e938c89789919cd8134461387feb",
+        "response_content_sha256": "aac59e60984b02fde9f27b021bcf225d2089d10fafa1ae39d9b7923f22d06e2a"
+      },
+      "decision": {
+        "action": "clarify",
+        "reason": "目前仅找到正式员工和实习生两类身份的年假制度，用户未明确其用工身份，需先确认；且现有资料未提及年假对年度绩效奖的影响。",
+        "result": {
+          "status": "needs_clarification",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "quote": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。"
+            }
+          ],
+          "missing_info": [
+            "用户的具体用工身份（正式员工或实习生等）尚未明确，无法确定适用的年假天数与工资规则。",
+            "现有资料未说明休年假是否会影响年度绩效奖。"
+          ],
+          "question": "请问你目前的用工身份是正式员工还是实习生呢？"
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M17",
+  "evaluation_turn": 1
+}

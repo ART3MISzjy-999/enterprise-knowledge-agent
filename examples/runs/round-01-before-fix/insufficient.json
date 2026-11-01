@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "run_id": "1891db5891244b6a9b4d5d58d4b01e81",
+  "recorded_at": "2026-11-01T01:41:02.977465+00:00",
+  "mode": "live",
+  "input": {
+    "question": "公司火星殖民补贴每人多少元？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "incomplete",
+    "answer": "本次查询未完成，不能确认结论。",
+    "citations": [],
+    "missing_info": [
+      "invalid_model_json"
+    ],
+    "question": ""
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "火星殖民补贴 每人金额",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [],
+        "total_hits": 0
+      },
+      "next_action": "model_error",
+      "decision_basis": "查找火星殖民补贴的相关规定及每人补贴金额",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "02179349725067858f2fcd7b6996c2abcdc77dac59912acee443b",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 38,
+          "prompt_tokens": 713,
+          "total_tokens": 751,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "f370b2c0b73f57f9ee1994122f287bfaf22d1f9e7ed6ff636ad871e2660f9b81",
+        "response_content_sha256": "e498d9ec7ceb11397d66b18cdab464f6bf24ca0e723f9ac213cb307256c2efe7"
+      },
+      "decision": {
+        "action": "search_documents",
+        "arguments": {
+          "query": "火星殖民补贴 每人金额",
+          "top_k": 5
+        },
+        "reason": "查找火星殖民补贴的相关规定及每人补贴金额"
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [],
+          "total_hits": 0,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "invalid_model_json"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "model_error",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:incomplete",
+      "decision_basis": "invalid_model_json",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793497254303807aee62071c6276565fb8410c8c517961f955",
+        "model": "doubao-seed-2-0-pro-260215",
+        "usage": {
+          "completion_tokens": 283,
+          "prompt_tokens": 779,
+          "total_tokens": 1062,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "da8886da50e3556cd9a5bec446131c4a3ffcf4e6267ffb15be9f44360aecd259",
+        "response_content_sha256": "31792cd0d961d3593486da2cd963f2fb2f3a661521458fd4e7138acb3e33d12d"
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "scenario": "insufficient",
+  "test_setup": {
+    "injected_search_failures": 0,
+    "excluded_doc_ids": [],
+    "synthetic_data": true
+  }
+}

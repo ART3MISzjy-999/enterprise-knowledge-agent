@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "run_id": "46f8aa002e224c7f90e67077961155c6",
+  "recorded_at": "2026-11-01T06:33:12.132638+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我是转正员工，年休额度有几天、远程办公进内网又得用什么验证？另外北京明天会下雨吗？",
+    "history": []
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "LEAVE-FT",
+        "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+        "version_date": "2026-01-10",
+        "scope": "正式员工",
+        "source": "search_documents"
+      },
+      {
+        "doc_id": "IT-VPN",
+        "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+        "version_date": "2026-04-12",
+        "scope": "全体员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "北京明天是否会下雨属于外部实时天气数据，现有企业制度及产品资料工具均无法查询，缺少外部天气数据来源及相关查询能力。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[LEAVE-FT] 正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。\n[IT-VPN] 远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。\n现有资料尚不能确认的部分：\n- 北京明天是否会下雨属于外部实时天气数据，现有企业制度及产品资料工具均无法查询，缺少外部天气数据来源及相关查询能力。",
+    "coverage": "partial"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "转正员工 年休假 天数 远程办公 内网 验证",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "IT-VPN",
+          "LEAVE-IN",
+          "LEAVE-FT",
+          "TRAVEL-HOTEL"
+        ],
+        "total_hits": 4
+      },
+      "next_action": "finish",
+      "decision_basis": "查找转正员工年休假天数以及远程办公访问内网的验证方式相关制度",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935147795854e8ca7cc8dfa644cd6d652940fe3acdf5efc1f",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 2393,
+          "total_tokens": 2445,
+          "prompt_tokens_details": {
+            "cached_tokens": 2360
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "afad3c0b080f01b895cc06a5084c5272c8863c6acab2c2975852944e8102b71f",
+        "response_content_sha256": "47be5549ede4a37827865efb3840503afab3450bca9b9e21687719a5843f5cae"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "查找转正员工年休假天数以及远程办公访问内网的验证方式相关制度",
+        "arguments": {
+          "query": "转正员工 年休假 天数 远程办公 内网 验证",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "IT-VPN",
+              "title": "远程办公 VPN 登录",
+              "version_date": "2026-04-12",
+              "scope": "全体员工",
+              "policy_key": "vpn_login",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 10.0625,
+              "snippet": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-IN",
+              "title": "实习生休假说明",
+              "version_date": "2026-02-01",
+              "scope": "实习生",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.3249,
+              "snippet": "实习生不适用正式员工的12天带薪年假制度。实习生因个人事务请假须提前1个工作日向导师申请，是否带薪以实习协议为准。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "LEAVE-FT",
+              "title": "正式员工年假 FAQ",
+              "version_date": "2026-01-10",
+              "scope": "正式员工",
+              "policy_key": "annual_leave",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 3.215,
+              "snippet": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "TRAVEL-HOTEL",
+              "title": "差旅住宿标准",
+              "version_date": "2026-06-01",
+              "scope": "正式员工",
+              "policy_key": "hotel_allowance",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 2.5957,
+              "snippet": "正式员工在中国大陆出差的住宿费用上限为每晚500元。超出上限的部分须在预订前获得部门负责人书面确认。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 4,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "年假与远程办公验证有对应制度依据；北京明日天气属外部实时数据，不在企业知识问答工具能力范围内。"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "年假与远程办公验证有对应制度依据；北京明日天气属外部实时数据，不在企业知识问答工具能力范围内。",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935147869960bbf51ace819fab93059a10f5630b3484c0c49",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 170,
+          "prompt_tokens": 2943,
+          "total_tokens": 3113,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "06151c93ea61603158d11bfb6ed89e06863b0cdf807c8118969bceb71f23f69d",
+        "response_content_sha256": "20a14b0cbf95f5b2792bf9863645c80688b0b9c3064c86817a7c445ec79dc7e3"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "年假与远程办公验证有对应制度依据；北京明日天气属外部实时数据，不在企业知识问答工具能力范围内。",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "LEAVE-FT",
+              "quote": "正式员工每个完整服务年度享有12天带薪年假。年假申请应提前3个工作日提交直属主管。"
+            },
+            {
+              "doc_id": "IT-VPN",
+              "quote": "远程办公登录VPN需要企业账号密码和动态验证码。连续5次验证失败后账号将锁定15分钟，可联系IT服务台处理。"
+            }
+          ],
+          "missing_info": [
+            "北京明天是否会下雨属于外部实时天气数据，现有企业制度及产品资料工具均无法查询，缺少外部天气数据来源及相关查询能力。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ],
+  "evaluation_case_id": "M15",
+  "evaluation_turn": 1
+}

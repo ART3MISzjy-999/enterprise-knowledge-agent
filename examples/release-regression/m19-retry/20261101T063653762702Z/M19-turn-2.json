@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "run_id": "771579628d354bcc892dbaf4ee338bbf",
+  "recorded_at": "2026-11-01T06:37:23.042528+00:00",
+  "mode": "live",
+  "input": {
+    "question": "我说的是自己的电脑仅在线查看，不把文件下载到本机；公司系统存储要求和这种访问方式都帮我分开说明。",
+    "history": [
+      {
+        "role": "user",
+        "content": "客户材料只放公司许可系统可以理解为不许放到个人云盘么？这是否也代表用私人的电脑登录看一眼都违规？"
+      },
+      {
+        "role": "assistant",
+        "content": "以下是已核对的资料（具体适用范围见各条）：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。\n现有资料尚不能确认的部分：\n- 现有资料没有明确说明使用私人电脑登录查看客户资料是否违规。"
+      }
+    ]
+  },
+  "model_response_count": 2,
+  "evidence_kind": "real_llm_execution",
+  "config": {
+    "max_steps": 10,
+    "max_tool_calls": 7
+  },
+  "corpus_sha256": "7ed0732546e070a1fa0756b883e0236fb866ca0f20c93b1fb93ac80ebd87ab19",
+  "result": {
+    "status": "insufficient",
+    "citations": [
+      {
+        "doc_id": "SECURITY",
+        "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+        "version_date": "2026-01-15",
+        "scope": "全体员工",
+        "source": "search_documents"
+      }
+    ],
+    "missing_info": [
+      "现有资料没有明确说明使用私人电脑仅在线查看（不下载到本机）客户资料是否违规。"
+    ],
+    "question": "",
+    "answer": "以下是已核对的资料（具体适用范围见各条）：\n[SECURITY] 客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。\n现有资料尚不能确认的部分：\n- 现有资料没有明确说明使用私人电脑仅在线查看（不下载到本机）客户资料是否违规。",
+    "coverage": "partial"
+  },
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "source": "live",
+      "action": "search_documents",
+      "tool_arguments": {
+        "query": "客户资料 公司系统存储要求 私人电脑 在线查看 不下载 规定",
+        "top_k": 5
+      },
+      "return_summary": {
+        "ok": true,
+        "doc_ids": [
+          "SECURITY",
+          "PRODUCT-EXPORT"
+        ],
+        "total_hits": 2
+      },
+      "next_action": "finish",
+      "decision_basis": "需要分别查找公司系统存储要求和私人电脑仅在线查看不下载客户资料的相关规定",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "0217935150354566ccf9412c566ef0a3e60cd40e0464675c5a530",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 60,
+          "prompt_tokens": 2524,
+          "total_tokens": 2584,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "e47fc048465d5032a4fb132a1db2a5f142a0c3a8818b333ed19ed3bd280e3bb0",
+        "response_content_sha256": "2779e357426242502da301a6b58288032eb3596bb0b259ebbe1fb17b181e6029"
+      },
+      "decision": {
+        "action": "search_documents",
+        "reason": "需要分别查找公司系统存储要求和私人电脑仅在线查看不下载客户资料的相关规定",
+        "arguments": {
+          "query": "客户资料 公司系统存储要求 私人电脑 在线查看 不下载 规定",
+          "top_k": 5
+        }
+      },
+      "tool_result": {
+        "ok": true,
+        "data": {
+          "results": [
+            {
+              "doc_id": "SECURITY",
+              "title": "客户资料保管规范",
+              "version_date": "2026-01-15",
+              "scope": "全体员工",
+              "policy_key": "customer_data",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 10.0059,
+              "snippet": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。",
+              "snippet_is_full": true
+            },
+            {
+              "doc_id": "PRODUCT-EXPORT",
+              "title": "合成产品 Aurora 编辑器导出 FAQ",
+              "version_date": "2026-05-01",
+              "scope": "Aurora标准版",
+              "policy_key": "export_format",
+              "supersedes": [],
+              "version_peer_ids": [],
+              "score": 1.3451,
+              "snippet": "Aurora标准版支持导出MP4格式视频，最高分辨率为1080p。当前资料未说明4K导出能力。",
+              "snippet_is_full": true
+            }
+          ],
+          "total_hits": 2,
+          "truncated": false
+        }
+      },
+      "next_decision_basis": "已检索到客户资料存储要求，但私人电脑在线查看不下载的规定无依据"
+    },
+    {
+      "step": 2,
+      "source": "live",
+      "action": "finish",
+      "tool_arguments": {},
+      "return_summary": null,
+      "next_action": "end:insufficient",
+      "decision_basis": "已检索到客户资料存储要求，但私人电脑在线查看不下载的规定无依据",
+      "validation_errors": [],
+      "model_metadata": {
+        "provider_host": "ark.cn-beijing.volces.com",
+        "response_id": "021793515039555b07cf2d4a8878f476632fa07590764668d6adf",
+        "model": "doubao-seed-2-1-turbo-260628",
+        "usage": {
+          "completion_tokens": 103,
+          "prompt_tokens": 2834,
+          "total_tokens": 2937,
+          "prompt_tokens_details": {
+            "cached_tokens": 1336
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        },
+        "finish_reason": "stop",
+        "request_sha256": "c9aa53e2e4579a7747594f9e53d16f1ea51947be1dd3a1ded6a6d17f047fa48a",
+        "response_content_sha256": "9e872ef5bac672e49aa0f5c428583ac38c7f5c3916b23e7535bcf7e885644373"
+      },
+      "decision": {
+        "action": "finish",
+        "reason": "已检索到客户资料存储要求，但私人电脑在线查看不下载的规定无依据",
+        "result": {
+          "status": "insufficient",
+          "citations": [
+            {
+              "doc_id": "SECURITY",
+              "quote": "客户资料只能保存在企业批准的系统内。未经授权不得将客户资料上传至个人网盘。"
+            }
+          ],
+          "missing_info": [
+            "现有资料没有明确说明使用私人电脑仅在线查看（不下载到本机）客户资料是否违规。"
+          ],
+          "question": ""
+        }
+      },
+      "next_decision_basis": ""
+    }
+  ]
+}
